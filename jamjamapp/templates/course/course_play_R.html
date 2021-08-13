@@ -1,0 +1,9 @@
+<h1>{{ small_region }}</h1>
+<div class="container px-4 px-lg-5">
+  <a href="{% url 'course_play_C' %}">글쓰기</a>
+  
+  {% for play_Cs in small_region.play_C_set.all %}
+    <h1>제목 : <a href="{% url 'course_play' play_C.id %}">{{play_Cs.Title}}</a></h1>
+    <h1>작성일 : {{play_Cs.Write_day}}</h1>
+  {% endfor %}
+</div>

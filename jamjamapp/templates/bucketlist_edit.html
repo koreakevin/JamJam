@@ -1,0 +1,9 @@
+<h1>bucketlist_edit</h1>
+<hr>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <button type="submit">수정</button>
+</form>

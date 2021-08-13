@@ -1,0 +1,236 @@
+.days {
+    width: 100%;
+}
+
+.heart {
+    color: #ff7a91;
+    display: inline-block;
+    width: 5%;
+    margin-left: 40%;
+}
+
+.whatdays {
+    display: inline-block;
+    width: 10%;
+}
+
+.ddays-container {
+    width: 100%;
+}
+
+.ddays {
+    display: inline-block;
+    position: relative;
+    height: 200px;
+    width: 80%;
+    margin-left: 7%;
+    margin-top: 3%;
+    padding: 10px 10px 10px 10px;
+    border: solid 7px #fd99aa;
+    background-color: #ffffff;
+}
+
+.ddays-date {
+    font-family: 'IM_Hyemin-Bold';
+    font-size: 30px;
+    color: #c56172;
+}
+
+
+.ddays-content {
+    width: 100%;
+    margin-left: 50%;
+}
+
+
+.plus-icon {
+    color:#c56172;
+    position: absolute;
+    left: 90%;
+    padding-bottom: 2%;
+}
+
+
+/* diary 디자인을 위해 추가,
+side navbar로 인해 margin-left 전체 먹여놓음 */
+
+.diary-body {
+    margin-left: 22%;
+    display: inline-block;
+}
+
+.diary-container {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    width: 100%;
+    padding: 5%;
+    height: 70%;
+    background-color: #FFC4CE;
+}
+
+.diary-input {
+    display: inline-block;
+    width: 100%;
+    border-radius: 0;
+    outline: 0;
+    outline-style: none;
+    color: #c56172;
+    font-size: 30px;
+    font-family: 'IM_Hyemin-Bold';
+}
+
+.save-btn {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    padding: 5px 5px;
+    align-items: center;
+    align-content: center;
+    font-size: 30px;
+    font-family: 'IM_Hyemin-Bold';
+    background-color: #fff;
+    border: #fff;
+}
+
+.diary-save {
+    width: 100%;
+    text-decoration: none;
+    color: #c56172;
+}
+
+/* 수정 부분 시작 */
+
+.icon-button {
+    display: inline-block;
+    width: 7%;
+    display: inline-block;
+    background-color: #ff7a91;
+    font-family : 'IM_Hyemin-Bold';
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+}
+
+/* 수정 부분 끝 */
+
+
+/* ======== Calendar ======== */
+
+.my-calendar {
+    display: inline-block;
+    width: 100%;
+    padding: 20px 20px 20px;
+    text-align: center;
+    cursor: default;
+    left: 40%;
+}
+
+.my-calendar .clicked-date {
+    border-radius: 25px;
+    margin-top: 36px;
+    float: left;
+    width: 30%;
+    padding: 46px 0 26px;
+}
+
+.my-calendar .calendar-box {
+    float: left;
+    width: 50%;
+    padding-left: 30px;
+}
+
+.clicked-date {
+    margin-left: 3%;
+}
+  
+.clicked-date .cal-day {
+    font-size: 40px;
+}
+.clicked-date .cal-date {
+    font-size:  60px;
+}
+  
+.ctr-box {
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.ctr-box .btn-cal {
+    position: relative;
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.ctr-box .btn-cal:after {
+    content: '<';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 25px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.ctr-box .btn-cal.next {
+    float: right;
+}
+
+.ctr-box .btn-cal.next:after {
+    content: '>';
+}
+  
+.cal-table {
+    width: 100%;
+}
+
+.cal-table th {
+    width: 14.2857%;
+    padding-bottom: 5px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.cal-table td {
+    padding: 3px 0;
+    height: 50px;
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+.cal-table td.day {
+    position: relative;
+    cursor: pointer;
+}
+
+.cal-table td.today {
+    background: #ffd255;
+    border-radius: 0%;
+    color: #fff;
+}
+
+.cal-table td.day-active {
+    background: #ff8585;
+    border-radius: 0%;
+    color: #fff;
+}
+
+.cal-table td.has-event:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background: #FFC107;
+}

@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 여기서부터 layout2.css 수정 */
+
+body {
+    font-family: 'IM_Hyemin-Bold';
+    margin: 0;
+    background-color: #FEE5E9;
+    
+}
+
+/*scrollbar css*/
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+}
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+  
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ff99aa;
+}
+
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #FFC4CE;
+}
+
+.wrapper {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+}
+
+.wrapper ::-webkit-scrollbar {
+
+    display: none; /* Chrome, Safari, Opera*/
+
+}
+
+/* 여기까지  layout2.css 수정 */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 15%;
+    background-color: #ff7a91;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+li a {
+    display: block;
+    color: white;
+    padding: 8px 8px 8px 8px;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+li a.active {
+    background-color:#FFC4CE;
+    color: #c56172;
+}
+
+li a:hover:not(.active) {
+    background-color: #FFC4CE;
+    color: white;
+}
+
+.navbar-brand {
+    width: 80%;
+    padding: 20px;
+}
+

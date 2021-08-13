@@ -1,0 +1,26 @@
+{% extends 'layout2.html' %} 
+{% load static %}
+
+{% block head %}
+<title>너와 나의 달달한 소스, JamJam</title>
+
+{% endblock %}
+{% block contents %}
+    <link href="{% static 'jamjamapp/css/shop.css' %}" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    
+<div class="jamshop-container">
+    <h1 class="jamshop-title">잼 샵</h1>
+
+    <div class="theme-linkbox" style="cursor:pointer">
+        <a href={% url 'theme' %} style="text-decoration:none;"><h2>폰트/배경</h2></a>
+    </div>
+
+    <div class="option-linkbox" style="cursor:pointer">
+        <a href={% url 'option' %} style="text-decoration:none;"><h2>기능</h2></a>
+    </div>
+    <div class="jampay-linkbox" style="cursor:pointer">
+        <a href={% url 'jampay' %} style="text-decoration:none;"><h2>잼 구매</h2></a>
+    </div>
+</div>
+{% endblock %}

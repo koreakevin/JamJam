@@ -1,0 +1,311 @@
+{% extends 'layout2.html' %} 
+{% load static %}
+
+
+{% block head %}
+<title>너와 나의 달달한 소스, JamJam</title>
+{% endblock %}
+{% block contents %}
+<link href="{% static 'jamjamapp/css/course.css' %}" rel="stylesheet" />
+
+<div class="course-body">
+
+
+    <div class="play-things"><a class="course-nav" href="#">놀거리</a></div>
+    <div class="see-things"><a class="course-nav" href="#">볼거리</a></div>
+    <div class="eat-things"><a class="course-nav" href="#">먹을거리</a></div>
+
+    <br>
+    <br>
+
+    <button class="region-btn" onclick="showPopup()">지역 검색</button>
+    
+    <div id="popup" class="hide">
+
+          <div class="map1">
+
+            <img src="{% static 'jamjamapp/img/map.jpg' %}" alt="" width="522" height="854"
+            style="position:fixed; top: 150px; left: 600px; z-index: 0;">
+
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 330px; left: 760px; z-index: 2;">
+            <button class="region-where" onclick="showseoul()">서울</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 390px; left: 790px; z-index: 2;">
+            <button class="region-where" onclick="showgyeonggi()">경기</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 290px; left: 700px; z-index: 2;">
+            <button class="region-where" onclick="showincheon()">인천</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 290px; left: 930px; z-index: 2;">
+            <button class="region-where" onclick="showgangwon()">강원</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 460px; left: 850px; z-index: 2;">
+            <button class="region-where" onclick="showchungbuk()">충북</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 510px; left: 800px; z-index: 2;">
+            <button class="region-where" onclick="showsejong()">세종</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 510px; left: 720px; z-index: 2;">
+            <button class="region-where" onclick="showsejong()">충남</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 510px; left: 1000px; z-index: 2;">
+            <button class="region-where" onclick="showgyeongbuk()">경북</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 565px; left: 800px; z-index: 2;">
+            <button class="region-where" onclick="showdaejeon()">대전</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 610px; left: 980px; z-index: 2;">
+            <button class="region-where" onclick="showdaegu()">대구</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 640px; left: 790px; z-index: 2;">
+            <button class="region-where" onclick="showjeonbuk()">전북</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 730px; left: 750px; z-index: 2;">
+            <button class="region-where" onclick="showgwangju()">광주</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 790px; left: 740px; z-index: 2;">
+            <button class="region-where" onclick="showgwangju()">전남</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 700px; left: 940px; z-index: 2;">
+            <button class="region-where" onclick="showgyeongnam()">경남</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 660px; left: 1070px; z-index: 2;">
+            <button class="region-where" onclick="showulsan()">울산</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 730px; left: 1040px; z-index: 2;">
+            <button class="region-where" onclick="showbusan()">부산</button>
+            </div>
+            <div class="map-child" style="position: fixed;
+            transform: translate(-50%, -50%);
+            top: 970px; left: 710px; z-index: 2;">
+            <button class="region-where" onclick="showjeju()">제주</button>
+            </div>
+          </div>
+
+          <div class="map2">
+            <h2>지역을 선택해주세요!</h2>
+            <div id='maplist'>
+                <ui class="region-name" id="seoul">
+
+                </ui>
+                <ui class="region-name" id="gyeonggi">
+
+                </ui>
+                <ui class="region-name" id="incheon">
+
+                </ui>
+                <ui class="region-name" id="gangwon">
+
+                </ui>
+                <ui class="region-name" id="chungbuk">
+
+                </ui>
+                <ui class="region-name" id="sejong">
+
+                </ui>
+                <ui class="region-name" id="chungnam">
+
+                </ui>
+                <ui class="region-name" id="gyeongbuk">
+
+                </ui>
+                <ui class="region-name" id="daejeon">
+
+                </ui>
+                <ui class="region-name" id="daegu">
+
+                </ui>
+                <ui class="region-name" id="jeonbuk">
+
+                </ui>
+                <ui class="region-name" id="gwangju">
+
+                </ui>
+                <ui class="region-name" id="jeonnam">
+
+                </ui>
+                <ui class="region-name" id="gyeongnam">
+
+                </ui>
+                <ui class="region-name" id="ulsan">
+
+                </ui>
+                <ui class="region-name" id="busan">
+
+                </ui>
+                <ui class="region-name" id="jeju">
+
+              </ui>
+            </div>
+          </div>
+        
+        <button class="map-close" onclick="closePopup()">닫기</button>
+        <button class="map-reset" onclick="deleteText()">초기화</button>
+      
+    </div>
+
+    
+  <div class="contents">
+
+     <div class="course-filter">
+        <select>
+            <option selected>전체</option>
+            <option>추천순</option>
+            <option>조회수순</option>
+            <option>댓글순</option>
+        </select>
+      </div>
+
+      <div class="card">
+        <a href="{% url 'course_detail' %}">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Seoul_Gyeongbok-gung-3.jpg/414px-Seoul_Gyeongbok-gung-3.jpg" alt="Avatar" style="width:100%">
+        </a>
+        <div class="container">
+             <a href="{% url 'course_detail' %}"><h4 class="course-name"><b>경복궁</b></h4></a>
+            <p class="course-info">사랑하는 연인과 함께 경복궁 야간개장 관람은 좋은 추억을 선물해줍니다. 미리 예매가 필요하고 입장시간도 확인해보세요!</p>
+            
+            <svg class="course-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+              <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+              <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+            <p class="course-count">3</p>
+            <svg class="course-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+            </svg>
+            <p class="course-count">3</p>
+
+        </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img" src="https://t1.daumcdn.net/cfile/tistory/992A94405F926D2C0C" alt="Avatar" style="width:100%">
+      <div class="container">
+          <h4 class="course-name"><b>익선동</b></h4>
+          <p class="course-info">골목 사이마다 특유의 멋이 있어 어느 골목길을 가도 건질 수 있는 인생사진! 전통 가옥의 매력을 느낄 수 있는 데이트 장소!</p> 
+          
+          <svg class="course-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          <p class="course-count">3</p>
+          <svg class="course-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+            <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+          </svg>
+          <p class="course-count">3</p>
+
+        </div>
+  </div>
+
+  <div class="card">
+      <img class="card-img" src="https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile27.uf.tistory.com%2Fimage%2F994B3A445CD0E2052267EA" alt="Avatar" style="width:100%">
+      <div class="container">
+          <h4 class="course-name"><b>한강공원</b></h4>
+          <p class="course-info">널찍한 산책로는 물론 야경도 여유롭게 감상할 수 있는 한강공원. 분위기 잡기 좋은 데이트 장소~</p> 
+          
+          <svg class="course-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          <p class="course-count">3</p>
+          <svg class="course-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+            <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+          </svg>
+          <p class="course-count">3</p>
+
+        </div>
+  </div>
+
+  <div class="card">
+      <img class="card-img" src="https://mblogthumb-phinf.pstatic.net/20160302_74/gr22nade_1456894355635ELByf_JPEG/1.JPG?type=w2" alt="Avatar" style="width:100%">
+      <div class="container">
+          <h4 class="course-name"><b>망원시장</b></h4>
+          <p class="course-info">맛있는 닭강정과 파전을 즐기고 후식으로 아이스크림 츄러스까지 먹으면 저절로 행복해지는 망원시장!</p> 
+          
+          <svg class="course-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          <p class="course-count">3</p>
+          <svg class="course-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+            <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+          </svg>
+          <p class="course-count">3</p>
+
+        </div>
+  </div>
+
+  <div class="card">
+      <img class="card-img" src="https://mblogthumb-phinf.pstatic.net/20160410_28/qp0542_1460291357367zyPQ5_JPEG/IMG_7703.JPG?type=w800" alt="Avatar" style="width:100%">
+      <div class="container">
+          <h4 class="course-name"><b>낙산공원</b></h4>
+          <p class="course-info">커플들의 성지인 대학로에 있는 낙산공원! 귀여운 벽화와 아기자기한 카페들이 옹기종기 모여있는 야경 맛집!</p> 
+          
+          <svg class="course-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          <p class="course-count">3</p>
+          <svg class="course-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+            <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+          </svg>
+          <p class="course-count">3</p>
+
+        </div>
+  </div>
+
+  <div class="card">
+      <img class="card-img" src="https://mblogthumb-phinf.pstatic.net/MjAxNzA2MDZfMTA1/MDAxNDk2NzU0NTY5NDQx.HzXBIxlefpVodvfrLlnwl2QboRLBVQOeMhWBJ1b2dc8g.yGNbt5n9bGXXGGdCEMAqqdHU0sbDI8zFAg3-GGm9BHgg.JPEG.kimbeagles/IMG_0721.jpg?type=w800" alt="Avatar" style="width:100%">
+      <div class="container">
+          <h4 class="course-name"><b>연남동</b></h4>
+          <p class="course-info">캔들과 스티커, 악세서리 등을 판매하는 소품샵들이 모여있는 골목길. 분위기 좋은 맛집도 많아서 굿굿!</p> 
+          
+          <svg class="course-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          <p class="course-count">3</p>
+          <svg class="course-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+            <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+          </svg>
+          <p class="course-count">3</p>
+
+        </div>
+  </div>
+</div> 
+
+</div>
+<script type="text/javascript" src="../static/jamjamapp/js/popup.js"></script>
+<script type="text/javascript" src="../static/jamjamapp/js/region.js"></script>
+{% endblock %}

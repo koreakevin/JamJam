@@ -1,0 +1,48 @@
+{% extends 'layout1.html' %} 
+{% load static %}
+
+{% block head %}
+<title>너와 나의 달달한 소스, JamJam</title>
+
+{% endblock %}
+{% block contents %}
+<link href="{% static 'jamjamapp/css/course.css' %}" rel="stylesheet" />
+
+<div class="maincontainer">
+    <h2 style="text-align: center; font-size: 60px;">게시글 작성</h2>
+    <br>
+    <br>
+    <br>
+    <hr class="course-hr">
+    <h3 class="course-h3">카테고리</h3>
+    <select class="course-category">
+        <option selected>큰 지역</option>
+        <option>서울시</option>
+        <option>부산시</option>
+        <option>어쩌구</option>
+    </select>
+    <select class="course-category">
+        <option selected>세부 지역</option>
+        <option>종로구</option>
+        <option>마포구</option>
+        <option>어쩌구</option>
+    </select>
+    <h3 class="course-h3">제목</h3>
+        <div class="course-input title">
+            <input type="text" name="title" placeholder="제목 입력" onfocus="this.placeholder=''" onblur="this.placeholder='제목 입력'">
+        </div>
+    <h3 class="course-h3" style="position: relative; display: inline-block; bottom: 150px;">내용</h3>
+        <div class="course-input content">
+           <textarea name="content" id="content" cols="20" rows="10" placeholder="내용" style="height: 400px;"></textarea>
+        </div>
+    <h3 class="course-h3">첨부파일</h3>
+    <div class="filebox">
+        <label for="ex_file">업로드</label>
+        <input type="file" id="ex_file">
+    </div>
+    <hr class="course-hr">
+    <div class="course-write-btn">
+        <button class="write-btn" style="display: flex; width: 30vh; justify-content: center; align-items: center; margin-bottom: 100px;">등록</button>
+    </div>
+</div>
+{% endblock %}

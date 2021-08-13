@@ -1,0 +1,8 @@
+<h1>day_detail_detail</h1>
+<hr>
+<h1>제목: {{post.diary_title}}</a></h1>
+<h1>추억 날짜: {{post.diary_date}}</h1>
+<h1>내용: {{post.diary_body}}</h1>
+
+<a href="{% url 'diary_edit' post.id %}">수정하기</a>
+<a href="{% url 'diary_delete' post.id %}">삭제하기</a>

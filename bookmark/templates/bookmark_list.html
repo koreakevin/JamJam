@@ -1,0 +1,46 @@
+{% extends 'layout1.html' %} 
+{% load static %}
+
+{% block head %}
+<title>너와 나의 달달한 소스, JamJam</title>
+
+{% endblock %}
+{% block contents %}
+<link href="{% static 'jamjamapp/css/bookmark.css' %}" rel="stylesheet" />
+
+
+<div class="bookmark-list-container">
+    <div class="bookmark-list-head">
+        <h1>000로 저장되어있는 글 목록</h1>
+    </div>
+    <div class="bookmark-list-body">
+        <div class="bookmark-create-btn">
+            <button class="create-btn"><a href={% url 'bookmark_create' %} style="text-decoration:none; text-align:center; content-align:center; font-size:30px;">URL 추가</a></button>
+        </div>
+        
+        <table class="list-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>제목</th>
+                    <th>수정</th>
+                    <th>삭제</th>
+                </tr>
+                </thead>
+                    <tbody>
+                    <th>1</th>
+                    <td><a href="https://www.naver.com/">네이버</a></td>
+                    <td><a href="bookmark_update">수정</a></td>
+                    <td><span class="delete"><a href="bookmark_delete">삭제</a></span></td>
+                </tbody>
+                <tbody>
+                    <th>2</th>
+                    <td><a href="https://www.google.co.kr/">구글</a></td>
+                    <td><a href="bookmark_update">수정</a></td>
+                    <td><span class="delete"><a href="bookmark_delete">삭제</a></span></td>
+                </tbody>
+        </table>
+
+    </div>
+</div>
+{% endblock %}

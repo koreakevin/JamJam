@@ -1,0 +1,288 @@
+/* theme.html, option.html */
+.theme-container {
+    display: grid;
+    grid-template-columns: 15% 10% 1fr 1fr 1fr 10%;
+    height: 920px;
+    grid-template-rows: 15% 10% 2fr 2fr 5% 20%;
+    grid-column-gap: 3%;
+    text-align: center;
+}
+
+.theme-container p {
+    font-size: 25pt;
+    margin :0;
+}
+
+.theme-container h2 {
+    font-size: 40px;
+    color: #c56172;
+    padding-top: 15%;
+}
+
+.theme-container h3 {
+    font-size: 30px;
+    
+}
+
+.theme-image-1 {
+    grid-column : 3/4;
+    grid-row: 3/4;
+    background-color: #FECDD6;
+}
+
+.theme-image-2 {
+    grid-column : 4/5;
+    grid-row: 3/4;
+    background-color: #FECDD6;
+}
+
+.theme-image-3 {
+    grid-column : 5/6;
+    grid-row: 3/4;
+    background-color: #FECDD6;
+}
+
+.item-explanation-1 {
+    grid-column : 3/4;
+    grid-row: 4/5;
+    background-color: white;
+}
+
+.item-explanation-2 {
+    grid-column : 4/5;
+    grid-row: 4/5;
+    background-color: white;
+}
+
+.item-explanation-3 {
+    grid-column : 5/6;
+    grid-row: 4/5;
+    background-color: white;
+}
+
+.item-pay-1 {
+    grid-column: 3/4;
+    grid-row: 5/6;
+    background-color: #FD99AA;
+}
+
+.item-pay-2 {
+    grid-column: 4/5;
+    grid-row: 5/6;
+    background-color: #FD99AA;
+}
+
+.item-pay-3 {
+    grid-column: 5/6;
+    grid-row: 5/6;
+    background-color: #FD99AA;
+}
+
+.shop-title{
+    grid-column : 3/6;
+    grid-row: 1/2;
+    text-align: center;
+    font-size: 70px;
+    color: #c56172;
+}
+
+
+
+/* shop.html */
+.jamshop-container {
+    display: grid;
+    grid-template-columns: 15% 10% 1fr 1fr 1fr 10%;
+    height: 920px;
+    grid-template-rows: 15% 10% 2fr 20%;
+    grid-column-gap: 3%;
+    text-align: center;
+}
+
+.theme-linkbox {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    background-color: #FECDD6;
+}
+
+.option-linkbox {
+    grid-column: 4/5;
+    grid-row: 3/4;
+    background-color: #FECDD6;
+}
+
+.jampay-linkbox {
+    grid-column: 5/6;
+    grid-row: 3/4;
+    background-color: #FECDD6;
+}
+
+.jamshop-container h2 {
+    font-size: 60px;
+    color: #c56172;
+    padding-top: 50%;
+}    
+
+.jamshop-title {
+    grid-column: 3/6;
+    grid-row: 1/2;
+    font-size: 70px;
+    color: #c56172;
+    text-align: center;
+
+}
+
+
+
+/* jampay.html */
+.jampay-container {
+    display: grid;
+    grid-template-columns: 15% 5% 1fr 1fr 1fr 1fr 5%;
+    height: 920px;
+    grid-template-rows: 15% 10% 1fr 1fr 1fr 20%;
+    grid-column-gap: 3%;
+}
+
+.jampay-title {
+    grid-column: 3/7;
+    grid-row: 1/2;
+    font-size: 70px;
+    color: #c56172;
+    text-align: center;
+}
+
+.jampay-container h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #c56172;
+    padding-top: 10%;
+}
+
+.jampay-first-box {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    background-color: #FECDD6;
+}
+
+.jampay-second-box {
+    grid-column: 4/5;
+    grid-row:3/4;
+    background-color: #FECDD6;
+}
+
+.jampay-third-box {
+    grid-column: 5/6;
+    grid-row:3/4;
+    background-color: #FECDD6;
+}
+
+.jampay-fourth-box {
+    grid-column: 6/7;
+    grid-row:3/4;
+    background-color: #FECDD6;
+}
+
+.moneypay-first-box {
+    grid-column: 3/4;
+    grid-row:4/5;
+    background-color: #FFB5C3;
+}
+
+.moneypay-second-box {
+    grid-column: 4/5;
+    grid-row:4/5;
+    background-color: #FFB5C3;
+}
+
+.moneypay-third-box {
+    grid-column: 5/6;
+    grid-row:4/5;
+    background-color: #FFB5C3;
+}
+
+.moneypay-fourth-box {
+    grid-column: 6/7;
+    grid-row:4/5;
+    background-color: #FFB5C3;
+}
+
+.pay-first-box {
+    grid-column: 3/4;
+    grid-row: 5/6;
+    padding: 10%;
+    text-align: center;
+    background-color: #FFDCE2;
+}   
+
+.pay-second-box {
+    grid-column: 4/5;
+    grid-row: 5/6;
+    padding: 10%;
+    text-align: center;
+    background-color: #FFDCE2;
+}
+
+.pay-third-box {
+    grid-column: 5/6;
+    grid-row: 5/6;
+    padding: 10%;
+    text-align: center;
+    background-color: #FFDCE2;
+}
+
+.pay-fourth-box {
+    grid-column: 6/7;
+    grid-row: 5/6;
+    padding: 10%;
+    text-align: center;
+    background-color: #FFDCE2;
+}
+
+/* pay.html */
+.pay-container {
+    display: grid;
+    height: 920px;
+    grid-template-columns: 15% 10% 10% 5% 30% 5% 30% ;
+    grid-template-rows: 15% 10% 1fr 15% 10% 20%;
+}
+
+.pay-container h1{
+    font-size: 50px;
+    color: #c56172;
+    text-align:center;
+    grid-column: 4/7;
+    grid-row: 2/3;
+}
+
+.pay-container h2 {
+    font-size: 30px;
+    grid-column: 5/6;
+    grid-row:3/4;
+    text-align: center;
+    justify-content: center;
+    color: #c56172;
+}
+
+.pay-container h3 {
+    font-size: 25px;
+    grid-column: 5/6;
+    grid-row: 4/5;
+    text-align: center;
+}
+
+.pay-box {
+    grid-column: 5/6;
+    grid-row: 5/6;
+    width: 50%;
+    margin: 0 auto;
+    cursor:pointer;
+    background-color: #FFB5C3;
+}
+
+.img-jam {
+    grid-column: 5/6;
+    grid-row: 3/4;
+    width: 30%;
+    margin: 0 auto;
+    cursor:pointer;
+    margin-top: 10%;
+}

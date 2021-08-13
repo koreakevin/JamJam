@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>너와 나의 달달한 소스, JamJam</title>
+    <link href="{% static 'jamjamapp/css/login.css' %}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <!--로그인 바 구현-->
+    <div class="login-container">
+        <div class="login-background">
+            <img src="{% static 'jamjamapp/img/loginback.jpg' %}">
+        </div>
+        <div class="find-box">
+            <div class="login-header">
+                <h1>잼잼 로그인</h1>
+            </div>
+            <div class="findpw-body">
+                <div class="">
+                    <div class="findpw">
+                    <form class="card mt-2">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="email-for-pass">이메일 주소를 입력해주세요!</label>
+                                <input class="form-control form-control-lg" type="text" placeholder="admin@jamjam.com">
+                                <small class="form-text text-muted">입력한 이메일 주소로 비밀번호 재설정 링크가 발송됩니다.</small>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-success" type="submit" style="font-size: 20px;">비밀번호 재설정 링크 받기</button>
+                            <button class="btn btn-danger" type="submit" style="font-size: 20px;" >로그인으로 돌아가기</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+/* bookmark_category.html */
+.bookmark-category-container {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-around;
+
+}
+
+.category-search{
+    height: 100%;
+}
+
+.categoryInput {
+    all: unset;
+    position: relative;
+    display: inline;
+}
+
+.categorylist {
+    width: 1fr;
+    align-items: center;
+    
+}
+
+.spanoverlay {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    margin: 0 auto;
+    display: block;
+    width: 10%;
+    height: 5px;
+    background-color: #fd99aa;
+    opacity: 0.2;
+}
+
+.category-enroll-btn {
+    all: unset;
+    width: 100px;
+    height: 40px;
+    border-radius: 12px;
+    text-align: center;
+    background-color: pink;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.category-enroll-btn:hover {
+    background-color: #fd99aa;
+    color: white;
+}
+
+.categorylist {
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    display: grid;
+}
+
+li {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0px;
+    text-align: center;
+    font-size: 15pt;
+    line-height: 40px;
+}
+
+
+/* bookmark_create.html */
+.bookmark-create-container {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+.bookmark-create-body {
+    display: grid;
+    grid-template-rows: repeat(3, 80px);
+}
+
+.bookmark-create-input {
+    all: unset;
+    position: relative;
+    left: 2%;
+}
+
+.bookmark-spanoverlay {
+    position: relative;
+    bottom: 0;
+    left: 4%;
+    justify-content: center;
+    margin: 0 auto;
+    display: block;
+    width: 10%;
+    height: 5px;
+    background-color: #fd99aa;
+    opacity: 0.2;
+}
+
+label {
+    color: #c56172;
+    font-size: 15pt;
+}
+
+select {
+    margin-right: 10%;
+    margin-left: 10%;
+    width: 15%;
+    padding: .8em .5em;
+    font-family: inherit;
+    background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid #fff;
+    border-radius: 0px;
+    color: #c56172;
+    font-size: 25px;
+    font-family: 'IM_Hyemin-Bold';
+  }
+  
+select::-ms-expand {
+    /* for IE 11 */
+    display: none;
+}
+
+.url-btn {
+    margin-top: 30px;
+}
+
+.add-btn {
+    all: unset;
+    width: 180px;
+    height: 70px;
+    border-radius: 12px;
+    text-align: center;
+    background-color: pink;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.add-btn:hover {
+    background-color: #fd99aa;
+    color: white;
+}
+
+
+/* bookmark_list.html */
+.bookmark-list-container {
+    justify-content: center;
+}
+
+table.list-table {
+    font-family : 'IM_Hyemin-Bold';
+    font-size: 30px;
+    color: #c56172;
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: center;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    width: 80%;
+    margin: 0 auto;
+}
+
+table.list-table th {
+    width: 150px;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: fff;
+}
+
+table.list-table td {
+    width: 350px;
+    padding: 20px;
+    text-align: center;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+
+table.list-table a {
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.bookmark-list-body {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+
+.create-btn {
+    all: unset;
+    width: 180px;
+    height: 70px;
+    border-radius: 12px;
+    text-align: center;
+    background-color: pink;
+    justify-content: center;
+    margin: 0 auto;
+    float: right;
+    margin-right: 10%;
+    
+}
+
+.create-btn:hover {
+    background-color: #fd99aa;
+    color: white;
+}
+
+
+/* bookmark_detail.html, bookmark_delete.html */
+
+.bookmark-detail-body h2 {
+    text-align: center;
+}
+
+.detail-btn-div {
+    margin: auto;
+    width: 20%;
+}
+
+.detail-add-btn {
+    all: unset;
+    width: 180px;
+    height: 70px;
+    border-radius: 12px;
+    text-align: center;
+    background-color: pink;
+    justify-content: center;
+    margin: 0 auto;
+
+    
+}
+
+.detail-add-btn:hover {
+    background-color: #fd99aa;
+    color: white;
+}
+
+.detail-correct-btn {
+    all: unset;
+    width: 180px;
+    height: 70px;
+    border-radius: 12px;
+    text-align: center;
+    background-color: pink;
+    justify-content: center;
+    margin: 0 auto;
+    
+}
+
+.detail-correct-btn:hover {
+    background-color: #fd99aa;
+    color: white;
+}

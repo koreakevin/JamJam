@@ -1,0 +1,132 @@
+{% extends 'layout1.html' %} 
+{% load static %}
+
+{% block head %}
+<title>너와 나의 달달한 소스, JamJam</title>
+
+{% endblock %}
+{% block contents %}
+    <link href="{% static 'jamjamapp/css/diary.css' %}" rel="stylesheet" />
+
+    <div class="maincontainer">
+        
+        <div class="days">
+            <h2 style="text-align: center; font-size: 40px; margin-right: 3%;">김댕댕님과</h2>
+            <br>
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-suit-heart-fill heart" viewBox="0 0 16 16">
+            <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+            </svg>
+            <h2 class="whatdays" style="text-align: center; font-size: 60px;">123일</h2>
+        </div>
+
+        <div class="ddays-body">
+
+            <div class="ddays-container">
+                <div class="ddays">
+                    <h2>우리의 첫 만남</h2>
+                    <h4 class="ddays-date">2018.01.01.</h4>
+                    <div class="ddays-content">
+                        <a style="text-decoration: none; font-size: 30px; position:absolute; bottom: 50%; color:#ff7a91;" href="#">
+                            추억을 기록해보세요!
+                        </a>
+                    </div>
+                </div>
+    
+            </div>
+
+            <div class="ddays-container">
+                <div class="ddays">
+                    <h2>100일</h2>
+                    <h4 class="ddays-date">2018.01.01.</h4>
+                    <div class="ddays-content">
+                        <a style="text-decoration: none; font-size: 30px; position:absolute; bottom: 50%; color:#ff7a91;" href="#">
+                            추억을 기록해보세요!
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ddays-container">
+                <div class="ddays">
+                    <h2>200일</h2>
+                    <h4 class="ddays-date">2018.01.01.</h4>
+                    <div class="ddays-content">
+                        <a style="text-decoration: none; font-size: 30px; position:absolute; bottom: 50%; color:#ff7a91;" href="#">
+                            추억을 기록해보세요!
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ddays-container">
+                <div class="ddays">
+                    <h2>300일</h2>
+                    <h4 class="ddays-date">2018.01.01.</h4>
+                    <div class="ddays-content">
+                        <a style="text-decoration: none; font-size: 30px; position:absolute; bottom: 50%; color:#ff7a91;" href="#">
+                            추억을 기록해보세요!
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ddays-container">
+                <div class="ddays">
+                    <h2>1주년</h2>
+                    <h4 class="ddays-date">2018.01.01.</h4>
+                    <div class="ddays-content">
+                        <a style="text-decoration: none; font-size: 30px; position:absolute; bottom: 50%; color:#ff7a91;" href="#">
+                            추억을 기록해보세요!
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ddays-container">
+                <div class="ddays">
+                    <h2>400일</h2>
+                    <h4 class="ddays-date">2018.01.01.</h4>
+                    <div class="ddays-content">
+                        <a style="text-decoration: none; font-size: 30px; position:absolute; bottom: 50%; color:#ff7a91;" href="#">
+                            추억을 기록해보세요!
+                        </a>
+                    </div>
+            </div>
+
+            <div class="ddays-container" style="margin-bottom: 50px;">
+                <div class="ddays">
+                    <h2>500일</h2>
+                    <h4 class="ddays-date">2018.01.01.</h4>
+                    <div class="ddays-content">
+                        <a style="text-decoration: none; font-size: 30px; position:absolute; bottom: 50%; color:#ff7a91;" href="#">
+                            추억을 기록해보세요!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-calendar-plus plus-icon" viewBox="0 0 16 16">
+                <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+            </svg>
+        </a>
+
+    </div>
+{% endblock %}
+
+<!--백--> 
+
+<h1>day_detail</h1>
+<hr>
+<div class="container px-4 px-lg-5">
+  
+  {% for posts in posts.all %}
+  <h1>제목: <a href="{% url 'diary_detail' posts.id %}">{{posts.diary_title}}</a></h1>
+  <h1>추억 날짜: {{posts.diary_date}}</h1>
+  <h1>내용: {{posts.diary_body}}</h1>
+  {% endfor %}
+
+  <a href="{% url 'diary_create' %}">작성하기</a>
+  </div>
