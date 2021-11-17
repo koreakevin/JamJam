@@ -7,19 +7,19 @@
 {% endblock %}
 {% block contents %}
 <div class='mypage-container'>
-    <a href={% url 'profile' %} style="text-decoration:none;">
+    <a href="{% url 'profile' %}" style="text-decoration:none;">
         <div class='mypage-box' style="cursor:pointer">
             <br> <br> <br> <br> <br> <br>
             <h1>개인정보 수정</h1>
         </div>
     </a>
-    <a href={% url 'connection' %} style="text-decoration:none;">
+    <a href="{% url 'connection' %}" style="text-decoration:none;">
         <div class='mypage-box' style="cursor:pointer">
             <br> <br> <br> <br> <br> <br>
             <h1>커플연결 설정</h1>
         </div>
     </a>
-    <a href={% url 'purchaselist' %} style="text-decoration:none;">
+    <a href="{% url 'purchaselist' %}" style="text-decoration:none;">
         <div class='mypage-box' style="cursor:pointer">
             <br> <br> <br> <br> <br> <br>
             <h1>구매목록 확인</h1>

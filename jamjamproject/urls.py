@@ -25,29 +25,24 @@ urlpatterns = [
     path('', jamjamapp.views.login, name='login'),  # 로그인(첫화면)
     path('main/', jamjamapp.views.main, name='main'),  # 메인
     path('layout/', jamjamapp.views.layout, name='layout'),  # 백메인
-    path('diary/', jamjamapp.views.diary, name='diary'),  # 다이어리 메인
+    path('calendar/', jamjamapp.views.calendar_view, name="calendar"),#일정
+    path('event/new/', jamjamapp.views.event, name="new"),#일정 생성
+    path('event/edit/<int:event_id>', jamjamapp.views.event, name="edit"),#일정 수정
     path('community/', jamjamapp.views.community, name='community'),  # 커뮤니티 메인
     path('course/', jamjamapp.views.course, name='course'),  # 코스 메인
-    path('course_detail/', jamjamapp.views.course_detail,
-         name='course_detail'),  # 코스 디테일
+    path('course_detail/', jamjamapp.views.course_detail, name='course_detail'),  # 코스 디테일
     path('shop/', jamjamapp.views.shop, name='shop'),  # 샵 메인
     path('theme/', jamjamapp.views.theme, name='theme'),  # 폰트/배경 샵
     path('option/', jamjamapp.views.option, name='option'),  # 기능 샵
     path('jampay/', jamjamapp.views.jampay, name='jampay'),  # 잼 구매 샵
     path('mypage/', jamjamapp.views.mypage, name='mypage'),  # 마이페이지
-    path('commu_detail/', jamjamapp.views.commu_detail,
-         name='commu_detail'),  # 커뮤니티 게시글 자세히 보기(프론트)
-    path('commu_edit/', jamjamapp.views.commu_edit, name='commu_edit'),
-    #     path('commu_detail/<str:id>/', jamjamapp.views.commu_detail,
-    #          name='commu_detail'),  # 커뮤니티 게시글 자세히 보기(백)
-    path('community_search/<int:hashtag_id>/', jamjamapp.views.community,
-         name='community'),  # 게시글 각 카테고리 페이지(해시태그로 치면 search)
-    path('commu_write/', jamjamapp.views.commu_write,
-         name='commu_write'),  # 게시글 글쓰기
-    #     path('commu_edit/<str:id>/', jamjamapp.views.commu_edit,
-    #          name='commu_edit'),  # 게시글 수정
-    #     path('commu_delete/<str:id>/', jamjamapp.views.commu_delete,
-    #          name='commu_delete'),  # 게시글 삭제
+    path('commu_detail/<str:id>/', jamjamapp.views.commu_detail, name='commu_detail'),  # 커뮤니티 게시글 자세히 보기(프론트)
+    path('commu_edit/<str:id>/', jamjamapp.views.commu_edit, name='commu_edit'),
+    path('commu_update/<str:id>/', jamjamapp.views.commu_update, name='commu_update'),  # 게시글 수정
+    #path('community_search/<int:hashtag_id>/', jamjamapp.views.community, name='community'),  # 게시글 각 카테고리 페이지(해시태그로 치면 search)
+    path('commu_write/', jamjamapp.views.commu_write, name='commu_write'),
+    path('commu_write/commu_new/', jamjamapp.views.commu_new, name='commu_new'),
+    path('commu_delete/<str:id>/', jamjamapp.views.commu_delete, name='commu_delete'),  # 게시글 삭제
     path('commu_delete_comment/<int:post_id>/<int:com_id>/',
          jamjamapp.views.commu_delete_comment, name='commu_delete_comment'),  # 댓글 삭제
     path('commu_like/<int:pk>', jamjamapp.views.commu_like, name='commu_like'),

@@ -1,13 +1,13 @@
 from django import forms
-from django.forms import fields
+from django.forms import fields, DateInput, ModelForm
 from django.contrib.auth.forms import ReadOnlyPasswordHashField, UserCreationForm
-from .models import Blog, Comment, Hashtag, Eat_C, Look_C, Play_C, Big_Region, Small_Region, Post, Profile, Bucket, SettingUser, UserManager
+from .models import Blog, Comment, Hashtag, Eat_C, Look_C, Play_C, Big_Region, Small_Region, Post, Profile, Bucket, SettingUser, UserManager, Event
 
 
 class CreateForm(forms.ModelForm):
     class Meta:
         model = Blog
-        fields = ['Title', 'Content', 'Image', 'hashtags']  # 카톡완료 후 작성자 추가하기
+        fields = ['Title', 'Content', 'hashtags']  # 카톡완료 후 작성자 추가하기
 
 
 class CommentForm(forms.ModelForm):
@@ -50,6 +50,21 @@ class Small_RegionForm(forms.ModelForm):
     class Meta:
         model = Small_Region
         fields = ['name']
+
+#다이어리
+class EventForm(ModelForm):
+    class Meta:
+        model = Event
+        widgets = {
+            'diary_start_time': DateInput(attrs={'type': 'date'}, format='%Y-%m-%d'),
+            'diary_end_time': DateInput(attrs={'type': 'date'}, format='%Y-%m-%d'),
+        }
+        fields = '__all__'
+    
+    def __init__(self, *args, **kwargs):
+        super(EventForm, self).__init__(*args, **kwargs)
+        self.fields['diary_start_time'].input_formats = ('%Y-%m-%d',)
+        self.fields['diary_end_time'].input_formats = ('%Y-%m-%d',)
 
 # ----민정이 개발 부분------
 

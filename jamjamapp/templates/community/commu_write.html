@@ -22,22 +22,24 @@
         <option>20~30대</option>
         <option>성고민</option>
     </select>
-    <h3 class="commu-h3">제목</h3>
+    <form action="{% url 'commu_new' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3 class="commu-h3">제목</h3>
         <div class="commu-input title">
-            <input type="text" name="title" placeholder="제목 입력" onfocus="this.placeholder=''" onblur="this.placeholder='제목 입력'">
+            <input type="text" name="Title" placeholder="제목 입력" onfocus="this.placeholder=''"
+                onblur="this.placeholder='제목 입력'">
         </div>
-    <h3 class="commu-h3" style="position: relative; display: inline-block; bottom: 150px;">내용</h3>
+        <h3 class="commu-h3" style="position: relative; display: inline-block; bottom: 150px;">내용</h3>
         <div class="commu-input content">
-           <textarea name="content" id="content" cols="20" rows="10" placeholder="내용" style="height: 400px;"></textarea>
+            <textarea name="Content" id="content" cols="20" rows="10" placeholder="내용" style="height: 400px;"></textarea>
         </div>
-    <h3 class="commu-h3">첨부파일</h3>
-    <div class="filebox">
-        <label for="ex_file">업로드</label>
-        <input type="file" id="ex_file">
-    </div>
-    <hr class="commu-hr">
-    <div class="commu-write-btn">
-        <button class="write-btn" style="display: flex; width: 30vh; justify-content: center; align-items: center; margin-bottom: 100px;"><a href={% url 'community' %} style="text-decoration:none; text-align:center; content-align:center; font-size:30px;">등록</a></button>
-    </div>
+        
+        <hr class="commu-hr">
+        <div class="commu-write-btn">
+            <button  type="submit" class="write-btn" style="display: flex; width: 30vh; justify-content: center; align-items: center; margin-bottom: 100px;">
+                등록
+            </button>
+        </div>
+    </form>
 </div>
 {% endblock %}

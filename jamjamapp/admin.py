@@ -3,6 +3,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .forms import UserForm
 from .models import Post, Profile, Bucket, Blog, Comment, Hashtag, Big_Region, Small_Region, Bookmark, SettingUser
 
+
 admin.site.register(Blog)
 admin.site.register(Hashtag)
 admin.site.register(Comment)
@@ -15,6 +16,7 @@ class BookmarkAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Bookmark, BookmarkAdmin)
+
 # ----민정이 개발 부분------
 
 admin.site.register(Post)

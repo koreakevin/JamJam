@@ -3,6 +3,7 @@ from django.conf import settings
 from functools import update_wrapper
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.utils import timezone
+from django.urls import reverse
 
 # 게시글
 
@@ -14,12 +15,14 @@ class Blog(models.Model):
     Content = models.TextField()
     Image = models.ImageField(upload_to='images/', blank=True)
     hashtags = models.ManyToManyField('Hashtag', blank=True)
-    Blog_likes = models.ManyToManyField(
-        settings.AUTH_USER_MODEL, related_name="Blog_likes")
+    Blog_likes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="Blog_likes")
     view_count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.Title
+
+    class Meta:
+        ordering = ['-id']
 
 # 댓글
 
@@ -121,6 +124,27 @@ class Bookmark(models.Model):
 
     class Meta:
         ordering = ["book_site_name"]
+
+
+# 다이어리
+class Event(models.Model):
+    diary_start_time = models.DateTimeField("시작시간")
+    diary_end_time = models.DateTimeField("마감시간")
+    diary_title = models.CharField("이벤트 이름", max_length=50)
+    diary_description = models.TextField("상세")
+
+    class Meta:
+        verbose_name = "이벤트 데이터"
+        verbose_name_plural = "이벤트 데이터"
+
+    def __str__(self):
+        return self.diary_title
+
+    @property
+    def get_html_url(self):
+        diary_url = reverse('edit', args=(self.id,))
+        return f'<a href="{diary_url}"> {self.diary_title} </a>'
+
 
 # ----민정이 개발 부분------
 

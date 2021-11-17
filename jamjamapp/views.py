@@ -5,8 +5,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 # from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from .models import Blog, Bookmark, Comment, Hashtag, Eat_C, Look_C, Play_C, Big_Region, Small_Region, Profile, Bucket, Post
-from .forms import CreateForm, CommentForm, Eat_CForm, Look_CForm, Play_CForm, Big_RegionForm, Small_RegionForm, PostForm, ProfileForm, BucketForm, PostForm, UserForm
+from .models import Blog, Bookmark, Comment, Hashtag, Eat_C, Look_C, Play_C, Big_Region, Small_Region, Profile, Bucket, Post, Event
+from .forms import CreateForm, CommentForm, Eat_CForm, Look_CForm, Play_CForm, Big_RegionForm, Small_RegionForm, PostForm, ProfileForm, BucketForm, PostForm, UserForm, EventForm
 from django.views.generic.list import ListView
 # from datetime import date, datetime, timedelta
 from django.contrib import auth
@@ -14,6 +14,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse
+import datetime #다이어리용
+import calendar#다이어리용
+from .calendar import Calendar #다이어리용
+from django.utils.safestring import mark_safe #다이어리용
+import markdown
+from django import template
+from django.utils.safestring import mark_safe
 
 # Create your views here.
 
@@ -46,38 +53,65 @@ def layout(request):
 
 
 def community(request):
-    # hashtag = get_object_or_404(Hashtag, pk=hashtag_id)
-    blogs = Blog.objects
-    return render(request, 'community/community.html', {'blogs': blogs})
+   blogs = Blog.objects
+#    # 입력 파라미터
+#    page = request.GET.get('page', '1')  # 페이지
+   
+#    # 조회
+#    question_list = Blog.objects.order_by('-create_date')
+
+#    # 페이징처리
+#    paginator = Paginator(question_list, 10)  # 페이지당 10개씩 보여주기
+#    page_obj = paginator.get_page(page)
+
+#    context = {'question_list': page_obj}
+#    context = {'question_list': question_list}
+   return render(request, 'community/community.html', {'blogs':blogs})
 
 # 커뮤니티 Write
-
 
 def commu_write(request):
     return render(request, 'community/commu_write.html')
 
+
+def commu_new(request, blog=None):
+    if request.method == 'POST':
+        blog = Blog()
+        blog.Title = request.POST['Title']
+        blog.Content = request.POST['Content']
+        blog.Write_day = timezone.now()
+        blog.save()
+        return redirect('community')
+    else:
+        return render(request, 'commu_new.html', {'blog':blog})
+
 # 커뮤니티 C
 
 
-def commu_write(request, blog=None):
-    hashtag = Hashtag.objects
-    if request.method == "POST":
-        form = CreateForm(request.POST, request.FILES, instance=blog)
-        if form.is_valid():
-            blog = form.save(commit=False)
-            blog.Write_day = timezone.datetime.now()
-            blog.save()
-            form.save_m2m()
-            return redirect('layout')
-    else:
-        form = CreateForm(instance=blog)
-        return render(request, 'community/commu_write.html', {'form': form, 'hashtag': hashtag})
+# def commu_C(request, blog=None):
+#     hashtag = Hashtag.objects
+#     if request.method == "POST":
+#         form = CreateForm(request.POST, request.FILES, instance=blog)
+#         if form.is_valid():
+#             blog = form.save(commit=False)
+#             blog.Write_day = timezone.datetime.now()
+#             blog.save()
+#             form.save_m2m()
+#             return redirect('layout')
+#     else:
+#         form = CreateForm(instance=blog)
+#         return render(request, 'community/commu_write.html', {'form': form, 'hashtag': hashtag})
 
 
 # 커뮤니티 게시글 자세히 보기 페이지 + 댓글(프론트)
 
-def commu_detail(request):
-    return render(request, 'community/commu_detail.html')
+def commu_detail(request, id):
+    blog = get_object_or_404(Blog, id = id)
+    default_view_count = blog.view_count
+    blog.view_count = default_view_count + 1
+    blog.save()
+    return render(request, 'community/commu_detail.html', {'blog':blog})
+
 
 # 커뮤니티 게시글 자세히 보기 페이지 + 댓글(백)
 
@@ -101,13 +135,20 @@ def commu_detail(request):
 #     return render(request, 'community/commu_detail.html', {'blog': blog, 'form': form})
 
 
-# 커뮤니티 수정 (프론트)
+# 커뮤니티 수정
 
-def commu_edit(request):
-    return render(request, 'community/commu_edit.html')
+def commu_edit(request, id):
+    edit_blog = Blog.objects.get(id=id)
+    return render(request, 'community/commu_edit.html', {'blog':edit_blog})
 
-# 커뮤니티 수정 (백)
 
+def commu_update(request, id):
+    update_blog = Blog.objects.get(id=id)
+    update_blog.Title = request.POST['Title']
+    update_blog.Content = request.POST['Content']
+    update_blog.Write_day = timezone.now()
+    update_blog.save()
+    return redirect('commu_detail', update_blog.id)
 
 # @login_required
 # def commu_edit(request, id):
@@ -150,12 +191,10 @@ def commu_edit(request):
 
 # 게시글 삭제(백)
 
-
-# @login_required
-# def commu_delete(request, id):
-#     delete_blog = get_object_or_404(Blog, id=id)
-#     delete_blog.delete()
-#     return redirect('layout')
+def commu_delete(request, id):
+    delete_blog = Blog.objects.get(id=id)
+    delete_blog.delete()
+    return redirect('community')
 
 # 댓글 삭제
 
@@ -181,6 +220,72 @@ def commu_like(request, pk):
         blog.Blog_likes.add(user)
 
     return redirect('commu_detail', pk)
+
+
+
+#다이어리 페이지
+def calendar_view(request):
+    today = get_date(request.GET.get('month'))
+
+    prev_month_var = prev_month(today)
+    next_month_var = next_month(today)
+
+    cal = Calendar(today.year, today.month)
+    html_cal = cal.formatmonth(withyear=True)
+    result_cal = mark_safe(html_cal)
+
+    context = {'calendar' : result_cal, 'prev_month' : prev_month_var, 'next_month' : next_month_var}
+
+    return render(request, 'diary_events.html', context)
+
+#현재 달력을 보고 있는 시점의 시간을 반환
+def get_date(req_day):
+    if req_day:
+        year, month = (int(x) for x in req_day.split('-'))
+        return datetime.date(year, month, day=1)
+    return datetime.datetime.today()
+
+#현재 달력의 이전 달 URL 반환
+def prev_month(day):
+    first = day.replace(day=1)
+    prev_month = first - datetime.timedelta(days=1)
+    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
+    return month
+
+#현재 달력의 다음 달 URL 반환
+def next_month(day):
+    days_in_month = calendar.monthrange(day.year, day.month)[1]
+    last = day.replace(day=days_in_month)
+    next_month = last + datetime.timedelta(days=1)
+    month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
+    return month
+
+#새로운 Event의 등록 혹은 수정
+def event(request, event_id=None):
+    if event_id:
+        instance = get_object_or_404(Event, pk=event_id)
+    else:
+        instance = Event()
+    
+    form = EventForm(request.POST or None, instance=instance)
+    if request.POST and form.is_valid():
+        form.save()
+        return redirect('calendar')
+    return render(request, 'diary_input.html', {'form': form})
+
+
+register = template.Library()
+
+@register.filter
+def sub(value, arg):
+    return value - arg
+
+
+@register.filter()
+def mark(value):
+    extensions = ["nl2br", "fenced_code"]
+    return mark_safe(markdown.markdown(value, extensions=extensions))
+
 
 # course 메인
 
