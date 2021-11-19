@@ -62,7 +62,6 @@
     <table class="commu-table">
         <thead>
             <tr>
-                <th>No</th>
                 <th>제목</th>
                 <th>작성자</th>
                 <th>작성일</th>
@@ -72,10 +71,9 @@
         </thead>
         {% for blogs in blogs.all %}
         <tbody>
-            <th>{{ blogs.id }}</th><!--글 목록 순서는 이런 식으로 메길 수 있다!!-->
             <td><a style="text-decoration:none; font-size:25px;" href="{% url 'commu_detail' blogs.id %}">{{ blogs.Title }}</a></td>
             <td>{{ user.username }}</td>
-            <td>{{ blogs.Write_day }}</td>
+            <td>{{ blogs.Write_day|date:'Y년 m월 d일' }}</td>
             <td>{{ blogs.view_count }}</td>
             <td>{{ blogs.Blog_likes.count }}</td>
         </tbody>
@@ -107,5 +105,6 @@
     <br>
     <br>
     <br>
+
 
     {% endblock %}

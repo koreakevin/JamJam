@@ -1,236 +1,102 @@
-.days {
-    width: 100%;
+h1 {
+    text-align : center;
 }
 
-.heart {
-    color: #ff7a91;
-    display: inline-block;
-    width: 5%;
-    margin-left: 40%;
+.calendar{
+    width: 70vmax;
+    font-size: 1rem;
+    margin : auto;
+	background: #ffffff;
+	border-radius: 1em;
+	-webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .2);
+	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .2);
+	color: #555;
+    text-align : center;
 }
 
-.whatdays {
-    display: inline-block;
-    width: 10%;
+.month {
+    font-size: 2rem;
+}
+  
+.date {
+    font-size: 1.5rem;
 }
 
-.ddays-container {
-    width: 100%;
+.calendar .month {
+    color : #222222;
+    font-weight: 800;
 }
 
-.ddays {
-    display: inline-block;
-    position: relative;
-    height: 200px;
-    width: 80%;
-    margin-left: 7%;
-    margin-top: 3%;
-    padding: 10px 10px 10px 10px;
-    border: solid 7px #fd99aa;
-    background-color: #ffffff;
-}
-
-.ddays-date {
-    font-family: 'IM_Hyemin-Bold';
-    font-size: 30px;
-    color: #c56172;
-}
-
-
-.ddays-content {
-    width: 100%;
-    margin-left: 50%;
-}
-
-
-.plus-icon {
-    color:#c56172;
-    position: absolute;
-    left: 90%;
-    padding-bottom: 2%;
-}
-
-
-/* diary 디자인을 위해 추가,
-side navbar로 인해 margin-left 전체 먹여놓음 */
-
-.diary-body {
-    margin-left: 22%;
-    display: inline-block;
-}
-
-.diary-container {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5%;
-    width: 100%;
-    padding: 5%;
-    height: 70%;
-    background-color: #FFC4CE;
-}
-
-.diary-input {
-    display: inline-block;
-    width: 100%;
-    border-radius: 0;
-    outline: 0;
-    outline-style: none;
-    color: #c56172;
-    font-size: 30px;
-    font-family: 'IM_Hyemin-Bold';
-}
-
-.save-btn {
-    display: inline-block;
-    width: 100%;
-    height: auto;
-    padding: 5px 5px;
-    align-items: center;
-    align-content: center;
-    font-size: 30px;
-    font-family: 'IM_Hyemin-Bold';
-    background-color: #fff;
-    border: #fff;
-}
-
-.diary-save {
-    width: 100%;
-    text-decoration: none;
-    color: #c56172;
-}
-
-/* 수정 부분 시작 */
-
-.icon-button {
-    display: inline-block;
-    width: 7%;
-    display: inline-block;
-    background-color: #ff7a91;
-    font-family : 'IM_Hyemin-Bold';
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border: none;
-}
-
-/* 수정 부분 끝 */
-
-
-/* ======== Calendar ======== */
-
-.my-calendar {
-    display: inline-block;
-    width: 100%;
-    padding: 20px 20px 20px;
+.calendar th {
+    padding: 3vw;
     text-align: center;
-    cursor: default;
-    left: 40%;
+    font-size: 1.5rem;
 }
 
-.my-calendar .clicked-date {
-    border-radius: 25px;
-    margin-top: 36px;
-    float: left;
-    width: 30%;
-    padding: 46px 0 26px;
+.calendar tr {
+	color: #e66b6b;
+	font-weight: 700;
+	text-transform: uppercase;
 }
 
-.my-calendar .calendar-box {
-    float: left;
-    width: 50%;
-    padding-left: 30px;
-}
-
-.clicked-date {
-    margin-left: 3%;
-}
+.calendar td {
+    width: 1rem;
+    height: 4.5em;
+    padding: .25em .25em;
+    /* transition: background .5s; */
+    height: 6vmax;
+    text-align : center;
+  }
   
-.clicked-date .cal-day {
-    font-size: 40px;
-}
-.clicked-date .cal-date {
-    font-size:  60px;
-}
-  
-.ctr-box {
-    padding: 10px 16px;
-    margin-bottom: 20px;
-    font-size: 30px;
+
+.calendar td:hover {
+	background: #cacaca;
 }
 
-.ctr-box .btn-cal {
-    position: relative;
-    float: left;
-    width: 25px;
-    height: 25px;
-    margin-top: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background: none;
-}
+.calendar a {
+    color: #e66b6b;
+	font-weight: 700; /*굵기*/
+    font-size: 1.4rem;
+  }
 
-.ctr-box .btn-cal:after {
-    content: '<';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.event_line {
     height: 100%;
-    line-height: 25px;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.ctr-box .btn-cal.next {
-    float: right;
-}
-
-.ctr-box .btn-cal.next:after {
-    content: '>';
+    padding: 0;
+    list-style: none;
+    margin : 0;
 }
   
-.cal-table {
+a {
+    transition: color .2s;
+}
+
+span {
+    color : black;
+}
+
+/* a:link { color: #ff7a91; text-decoration: none;} */
+/* li:visited { color: #ff7a91; text-decoration: none; text-shadow: #555;}
+a:hover { color: red; text-decoration: none;} */
+
+.left {
+    float : left;
+    margin : 10px;
+}
+   
+.right {
+    float : right;
+    margin : 10px;
+}
+
+.form {
+    margin: auto;
+}
+  
+  .form input, .form select, .form textarea {
+    border-radius: 5px;
+    border: 1px solid #17a2b8;
+    outline: none;
+    background: none;
+    padding: 5px;
     width: 100%;
-}
-
-.cal-table th {
-    width: 14.2857%;
-    padding-bottom: 5px;
-    font-size: 30px;
-    font-weight: 900;
-}
-
-.cal-table td {
-    padding: 3px 0;
-    height: 50px;
-    font-size: 30px;
-    vertical-align: middle;
-}
-
-.cal-table td.day {
-    position: relative;
-    cursor: pointer;
-}
-
-.cal-table td.today {
-    background: #ffd255;
-    border-radius: 0%;
-    color: #fff;
-}
-
-.cal-table td.day-active {
-    background: #ff8585;
-    border-radius: 0%;
-    color: #fff;
-}
-
-.cal-table td.has-event:after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 4px;
-    background: #FFC107;
 }
