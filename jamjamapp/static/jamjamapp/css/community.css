@@ -2,6 +2,10 @@ body {
     overflow-x: hidden;
 }
 
+ul{
+    list-style:none;
+}
+
 .commu-menu {
     text-align: center;
     list-style: none;

@@ -18,9 +18,9 @@ import datetime #다이어리용
 import calendar#다이어리용
 from .calendar import Calendar #다이어리용
 from django.utils.safestring import mark_safe #다이어리용
-import markdown
 from django import template
 from django.utils.safestring import mark_safe
+from django.core.paginator import Paginator # 커뮤니티 페이징
 
 # Create your views here.
 
@@ -53,7 +53,18 @@ def layout(request):
 
 
 def community(request):
-   blogs = Blog.objects
+   # 입력 파라미터
+   page = request.GET.get('page', '1')  # 페이지
+
+   # 조회
+   blogs = Blog.objects.order_by('-Write_day')
+
+   # 페이징처리
+   paginator = Paginator(blogs, 5)  # 페이지당 10개씩 보여주기
+   page_obj = paginator.get_page(page)
+
+   context = {'blogs': page_obj}
+   return render(request, 'community/community.html', context)
 #    # 입력 파라미터
 #    page = request.GET.get('page', '1')  # 페이지
    
@@ -66,7 +77,7 @@ def community(request):
 
 #    context = {'question_list': page_obj}
 #    context = {'question_list': question_list}
-   return render(request, 'community/community.html', {'blogs':blogs})
+
 
 # 커뮤니티 Write
 
@@ -110,7 +121,18 @@ def commu_detail(request, id):
     default_view_count = blog.view_count
     blog.view_count = default_view_count + 1
     blog.save()
-    return render(request, 'community/commu_detail.html', {'blog':blog})
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post_id = blog
+            comment.pub_date = timezone.datetime.now()
+            comment.text = form.cleaned_data['text']
+            comment.save()
+            return redirect('commu_detail', id)
+    else:
+        form = CommentForm()
+        return render(request, 'community/commu_detail.html', {'blog':blog, 'form':form})
 
 
 # 커뮤니티 게시글 자세히 보기 페이지 + 댓글(백)
@@ -196,13 +218,19 @@ def commu_delete(request, id):
     delete_blog.delete()
     return redirect('community')
 
+
 # 댓글 삭제
 
 
-def commu_delete_comment(request, com_id, post_id):
-    mycom = Comment.objects.get(id=com_id)
-    mycom.delete()
-    return redirect('commu_detail', post_id)
+def comment_remove(request, pk, id):
+
+    if request.method == 'POST':
+
+        print('comment_remove')
+
+        Comment.objects.get(pk=pk).delete()
+    
+    return redirect('commu_detail', id)
 
 # 좋아요
 
@@ -220,7 +248,6 @@ def commu_like(request, pk):
         blog.Blog_likes.add(user)
 
     return redirect('commu_detail', pk)
-
 
 
 #다이어리 페이지
@@ -412,13 +439,6 @@ def course_eat_detail(request, id):
         form = CommentForm()
         return render(request, 'course/course_eat_detail.html', {'eat_C': eat_C, 'form': form})
 
-# 댓글 삭제
-
-
-def course_eat_delete_comment(request, com_id, post_id):
-    mycom = Comment.objects.get(id=com_id)
-    mycom.delete()
-    return redirect('course_eat_detail', post_id)
 
 # course_eat_U
 

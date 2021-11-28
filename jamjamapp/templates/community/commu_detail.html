@@ -45,6 +45,9 @@
         {% endif %}
         <p>{{ blog.Blog_likes.count }}</p>
 
+        <!--스크랩-->
+        
+
         <!--여긴 조회수임다!!-->
 
         <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
@@ -96,77 +99,25 @@
 
         
         <section class="content-item" id="comments">
-            <div class="container">   
+            <div class="container">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h3>3 Comments</h3>
-                        
-                        <!-- COMMENT 1 - START -->
-                        <div class="media comment-media">
-                            <a class="pull-left" href="#"><img class="media-object" src="https://www.interstatedevelopment.com/wp-content/uploads/2019/04/generic-avatar-1.jpg" alt=""></a>
-                            <div class="media-body">
-                                <h4 class="media-heading">피카츄</h4>
-                                <p>어쩌구</p>
-                                <ul class="list-unstyled list-inline media-detail pull-left">
-                                    <li><i class="fa fa-calendar"></i>21.07.24.</li>
-                                    <li><i class="fa fa-thumbs-up"></i>3</li>
-                                </ul>
-                                <ul class="list-unstyled list-inline media-detail pull-right">
-                                    <li><a class="comment-btn" href="">Like</a></li>
-                                    <li><a class="comment-btn" href="">Reply</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- COMMENT 1 - END -->
-                        
-                        <!-- COMMENT 2 - START -->
-                        <div class="media">
-                            <a class="pull-left" href="#"><img class="media-object" src="https://www.interstatedevelopment.com/wp-content/uploads/2019/04/generic-avatar-1.jpg" alt=""></a>
-                            <div class="media-body">
-                                <h4 class="media-heading">파이리</h4>
-                                <p>저쩌구</p>
-                                <ul class="list-unstyled list-inline media-detail pull-left">
-                                    <li><i class="fa fa-calendar"></i>21.07.24.</li>
-                                    <li><i class="fa fa-thumbs-up"></i>3</li>
-                                </ul>
-                                <ul class="list-unstyled list-inline media-detail pull-right">
-                                    <li><a class="comment-btn" href="">Like</a></li>
-                                    <li><a class="comment-btn" href="">Reply</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- COMMENT 2 - END -->
-                        
-                        <!-- COMMENT 3 - START -->
-                        <div class="media">
-                            <a class="pull-left" href="#"><img class="media-object" src="https://www.interstatedevelopment.com/wp-content/uploads/2019/04/generic-avatar-1.jpg" alt=""></a>
-                            <div class="media-body">
-                                <h4 class="media-heading">꼬부기</h4>
-                                <p>와라라라라랄</p>
-                                <ul class="list-unstyled list-inline media-detail pull-left">
-                                    <li><i class="fa fa-calendar"></i>21.07.24.</li>
-                                    <li><i class="fa fa-thumbs-up"></i>1</li>
-                                </ul>
-                                <ul class="list-unstyled list-inline media-detail pull-right">
-                                    <li><a class="comment-btn" href="">Like</a></li>
-                                    <li><a class="comment-btn" href="">Reply</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- COMMENT 3 - END -->
+                        <h3>댓글</h3>
+            
+                        <!-- COMMENT - START -->
+                        <form method="POST" action="{% url 'commu_detail' blog.id %}">
+                            {% csrf_token %}
+                            <p>{{ form.as_p }}</p>
+                            <input type="submit" value="submit">
+                        </form>
+                        {% for comment in blog.comments.all %}
+                        <p>↳ &nbsp;{{ user.username }}&nbsp;:&nbsp;{{ comment.text }}&nbsp;&nbsp;(&nbsp;{{ comment.pub_date }}&nbsp;)</p>
+                        {% endfor %}
+                        <!-- COMMENT - END -->
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="panel">
-            <div class="panel-body">
-              <textarea class="form-control comment-input" rows="2" placeholder="댓글을 입력해주세요."></textarea>
-              <div class="mar-top clearfix">
-                <button class="btn btn-sm btn-primary pull-right comment-submit" type="submit"><i class="fa fa-pencil fa-fw"></i>등록</button>
-                <a class="btn btn-trans btn-icon fa fa-camera fa-3x add-tooltip comment-button" href="#"></a>
-              </div>
-            </div>
-          </div>
     </div>
 {% endblock %}

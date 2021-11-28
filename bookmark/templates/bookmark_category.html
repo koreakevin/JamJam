@@ -31,4 +31,30 @@
     
     </div>
 </div>
+
+
+<h1>New URL category</h1>
+<span class="subheading">카테고리를 추가하여 스크랩한 url을 종류별로 분류해보세요</span>
+      <form method="POST">
+          {% csrf_token %}
+          <br><br>
+          <table>
+              {{form.as_table}}{{ error_message }}
+          </table>
+          <br>
+          <input class="btn btn-dark" type="submit" value="제출하기">
+      </form>
+
+
+
+<h1>Bookmark List</h1>
+<!--이거 드롭다운으로 바꿔야함!!!-->
+<div class="dropdown">
+    <div class="dropdown-content">
+        {% for book_categorys in book_categorys.all %}
+        <a href="{% url 'bookmark_list' book_categorys.id %}">{{ book_categorys.name }}</a><br>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock %}

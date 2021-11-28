@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 from functools import update_wrapper
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, User
 from django.utils import timezone
 from django.urls import reverse
 
@@ -18,6 +18,9 @@ class Blog(models.Model):
     Blog_likes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="Blog_likes")
     view_count = models.IntegerField(default=0)
 
+    like = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_post', blank=True)
+    favorite = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='favorite_post', blank=True)
+
     def __str__(self):
         return self.Title
 
@@ -26,14 +29,13 @@ class Blog(models.Model):
 
 # 댓글
 
-
 class Comment(models.Model):
+    post_id = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments')
+    text = models.CharField(max_length=100)
+    pub_date = models.DateTimeField('data published', null = True)
+    
     def __str__(self):
         return self.text
-
-    post_id = models.ForeignKey(
-        Blog, on_delete=models.CASCADE, related_name='comments')
-    text = models.CharField(max_length=50)
 
 # 커뮤니티 카테고리를 해시태그라고 편의상 해둠
 

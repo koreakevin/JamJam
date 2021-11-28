@@ -19,7 +19,6 @@ from django.contrib import admin
 from django.urls import path, include
 import jamjamapp.views
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', jamjamapp.views.login, name='login'),  # 로그인(첫화면)
@@ -43,8 +42,6 @@ urlpatterns = [
     path('commu_write/', jamjamapp.views.commu_write, name='commu_write'),
     path('commu_write/commu_new/', jamjamapp.views.commu_new, name='commu_new'),
     path('commu_delete/<str:id>/', jamjamapp.views.commu_delete, name='commu_delete'),  # 게시글 삭제
-    path('commu_delete_comment/<int:post_id>/<int:com_id>/',
-         jamjamapp.views.commu_delete_comment, name='commu_delete_comment'),  # 댓글 삭제
     path('commu_like/<int:pk>', jamjamapp.views.commu_like, name='commu_like'),
     path('course_eat/', jamjamapp.views.course_eat,
          name='course_eat'),  # course_eat 전체글 보기
@@ -88,8 +85,7 @@ urlpatterns = [
          name='course_play_delete'),  # play 게시글 삭제
     path('course_play_like/<int:pk>', jamjamapp.views.course_play_like,
          name='course_play_like'),  # play 게시글 좋아요
-    path('bookmark/', include('bookmark.urls')),
-
+    path('bookmark/', include('bookmark.urls')), 
     # ------민정 개발-------
     path('pay/', jamjamapp.views.pay, name='pay'),  # 결제 확인
     path('completepay/', jamjamapp.views.completepay, name='completepay'),  # 결제완료

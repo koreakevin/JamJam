@@ -3,7 +3,7 @@ import bookmark.views
 from .views import *
 urlpatterns = [
     # path('', bookmark.views.bookmark_category, name='bookmark_category'),
-    # path('<int:book_category_id>/bookmark_list/',
+    # path('<int:book_category_id>/bookmark_list/', 
     #      bookmark.views.bookmark_list, name='bookmark_list'),
     # path('bookmark_update/<int:pk>/',
     #      BookmarkUpdate.as_view(), name='bookmark_update'),

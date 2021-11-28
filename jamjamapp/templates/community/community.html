@@ -9,6 +9,11 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet" />
 <link href="{% static 'jamjamapp/css/community.css' %}" rel="stylesheet" />
 
+<style>
+    ul{
+       list-style:none;
+       }
+</style>
 
 <div class="maincontainer">
     <h2 style="text-align: center; font-size: 60px;">커뮤니티</h2>
@@ -69,7 +74,7 @@
                 <th>추천수</th>
             </tr>
         </thead>
-        {% for blogs in blogs.all %}
+        {% for blogs in blogs %}
         <tbody>
             <td><a style="text-decoration:none; font-size:25px;" href="{% url 'commu_detail' blogs.id %}">{{ blogs.Title }}</a></td>
             <td>{{ user.username }}</td>
@@ -81,26 +86,45 @@
     </table>
 
     <nav class="commu-page">
-        <ul class="commu-page-ul">
-            <li class="commu-page-li">
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li class="commu-page-li"><a href="#">1</a></li>
-            <li class="commu-page-li"><a href="#">2</a></li>
-            <li class="commu-page-li"><a href="#">3</a></li>
-            <li class="commu-page-li"><a href="#">4</a></li>
-            <li class="commu-page-li"><a href="#">5</a></li>
-            <li class="commu-page-li">
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-
+<!-- 페이징처리 시작 -->
+<ul class="commu-page-ul">
+    <!-- 이전페이지 -->
+    {% if blogs.has_previous %}
+    <li class="commu-page-li">
+        <a class="page-link" href="?page={{ blogs.previous_page_number }}">이전</a>
+    </li>
+    {% else %}
+    <li class="commu-page-li">
+        <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+    </li>
+    {% endif %}
+    <!-- 페이지리스트 -->
+    {% for page_number in blogs.paginator.page_range %}
+    {% if page_number >= blogs.number|add:-4 and page_number <= blogs.number|add:4 %}
+        {% if page_number == blogs.number %}
+        <li class="commu-page-li" aria-current="page">
+            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+        </li>
+        {% else %}
+        <li class="commu-page-li">
+            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+        </li>
+        {% endif %}
+    {% endif %}
+    {% endfor %}
+    <!-- 다음페이지 -->
+    {% if blogs.has_next %}
+    <li class="commu-page-li">
+        <a class="page-link" href="?page={{ blogs.next_page_number }}">다음</a>
+    </li>
+    {% else %}
+    <li class="pcommu-page-li">
+        <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+    </li>
+    {% endif %}
+</ul>
+<!-- 페이징처리 끝 -->
+</nav>
     <hr class="commu-hr">
     <br>
     <br>
