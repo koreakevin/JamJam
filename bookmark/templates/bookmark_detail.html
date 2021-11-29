@@ -8,19 +8,7 @@
 {% block contents %}
 <link href="{% static 'jamjamapp/css/bookmark.css' %}" rel="stylesheet" />
 
-
-<div class="bookmark-detail-container">
-    <div class="bookmark-detail-head">
-        <h1>북마크를 삭제하시겠습니까?</h1>
-    </div>
-    <div class="bookmark-detail-body">
-        <h2>URL :: https://www.naver.com/</h2>
-        <h2>URL 이름 :: 네이버</h2>
-        <h2>카테고리 :: 사이트</h2>
-        <div class="detail-btn-div">
-            <button class="detail-add-btn"><a href={% url 'bookmark_list' %} style="text-decoration:none; text-align:center; content-align:center; font-size:30px;">확인</a></button>
-            <button class="detail-correct-btn"><a href={% url 'bookmark_list' %} style="text-decoration:none; text-align:center; content-align:center; font-size:30px;">취소</a></button>
-        </div>
-    </div>
-</div>
+{{object.book_site_name}}<br>
+{{object.book_url}}<br>
+<a href="{% url 'bookmark_category' %}">북마크 홈으로</a>
 {% endblock %}

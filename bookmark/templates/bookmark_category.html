@@ -13,48 +13,24 @@
     <div class="category-search">
         <h1>새로운 URL 카테고리 생성하기</h1>
         <p>카테고리를 추가하여 스크랩한 url을 종류별로 구분해보세요</p>
-        <input type="text" id="category" placeholder="카테고리" required class="categoryInput" maxlength="8">
-        <span class="spanoverlay"></span>
-        <br>
-        <button class="category-enroll-btn">등록</button>
-    </div>
-
-
-    <div class="categorylist">
-
-        <h2>[ 카테고리 목록 ]</h2>
-        <a href="{% url 'bookmark_list' %}"><li class="category-list-li">광현오빠는 ENTP</li></a>
-        <a href="{% url 'bookmark_list' %}"><li class="category-list-li">주영언니는 ENFJ</li></a>
-        <a href="{% url 'bookmark_list' %}"><li class="category-list-li">으네는 ENFJ</li></a>
-        <a href="{% url 'bookmark_list' %}"><li class="category-list-li">민정이는 INFP</li></a>
-        <a href="{% url 'bookmark_list' %}"><li class="category-list-li">예찬이는 ISTJ</li></a>
-    
-    </div>
-</div>
-
-
-<h1>New URL category</h1>
-<span class="subheading">카테고리를 추가하여 스크랩한 url을 종류별로 분류해보세요</span>
-      <form method="POST">
+        <form method="POST">
           {% csrf_token %}
           <br><br>
           <table>
               {{form.as_table}}{{ error_message }}
           </table>
           <br>
-          <input class="btn btn-dark" type="submit" value="제출하기">
-      </form>
+          <input class="category-enroll-btn" type="submit" value="제출하기">
+       </form>
+    </div>
 
 
+    <div class="categorylist">
 
-<h1>Bookmark List</h1>
-<!--이거 드롭다운으로 바꿔야함!!!-->
-<div class="dropdown">
-    <div class="dropdown-content">
-        {% for book_categorys in book_categorys.all %}
-        <a href="{% url 'bookmark_list' book_categorys.id %}">{{ book_categorys.name }}</a><br>
-        {% endfor %}
+        <h2>[ 카테고리 목록 ]</h2>
+            {% for book_categorys in book_categorys.all %}
+            <a href="{% url 'bookmark_list' book_categorys.id %}">{{ book_categorys.name }}</a><br>
+            {% endfor %}    
     </div>
 </div>
-
 {% endblock %}

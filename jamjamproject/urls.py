@@ -85,7 +85,7 @@ urlpatterns = [
          name='course_play_delete'),  # play 게시글 삭제
     path('course_play_like/<int:pk>', jamjamapp.views.course_play_like,
          name='course_play_like'),  # play 게시글 좋아요
-    path('bookmark/', include('bookmark.urls')), 
+    path('bookmark/', include('bookmark.urls')),#북마크앱 url
     # ------민정 개발-------
     path('pay/', jamjamapp.views.pay, name='pay'),  # 결제 확인
     path('completepay/', jamjamapp.views.completepay, name='completepay'),  # 결제완료

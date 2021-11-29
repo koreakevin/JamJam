@@ -2,10 +2,19 @@ h1 {
     text-align : center;
 }
 
+body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
 .calendar{
     width: 70vmax;
     font-size: 1rem;
     margin : auto;
+    margin-bottom: 200px;
 	background: #ffffff;
 	border-radius: 1em;
 	-webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .2);
@@ -99,4 +108,25 @@ a:hover { color: red; text-decoration: none;} */
     background: none;
     padding: 5px;
     width: 100%;
+}
+
+/* diary_events.html */
+#btn-diary-left   {
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-right: 60px solid #c56172;
+    border-bottom: 30px solid transparent;
+    margin-top: 50px;
+    margin-left: 10%;
+}
+
+#btn-diary-right {
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-left: 60px solid #c56172;
+    border-bottom: 30px solid transparent;
+    margin-top: 50px;
+    margin-right: 10%;
 }

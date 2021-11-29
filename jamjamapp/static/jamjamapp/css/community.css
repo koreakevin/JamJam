@@ -128,10 +128,18 @@ button svg{
 }
 /* search bar CSS ends here ---*/
 
-.commu-write-btn {
-    margin-left: 15%;
-    position: relative;
-    display: inline-block;
+.create-btn {
+    background-color: #ff7a91;
+    color: white !important;
+    font-family : 'IM_Hyemin-Bold';
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 25px;
+    border: none;
+    margin-left: 90%;
+    justify-content: center;
 }
 
 .write-btn {
@@ -144,6 +152,9 @@ button svg{
     padding-right: 20px;
     font-size: 25px;
     border: none;
+    margin-left: 45%;
+    justify-content: center;
+    
 }
 
 /* 커뮤니티 horizon */
@@ -152,6 +163,7 @@ button svg{
     background-color: #FEE5E9;
     border-top: 3px dashed #c56172;
 }
+
 
 /* 커뮤 글 목록 css */
 
@@ -242,6 +254,7 @@ li.commu-page-li a:hover {
     font-size: 25px;
     font-family: 'IM_Hyemin-Bold';
 }
+
 
 select {
     margin-right: 10%;
@@ -340,30 +353,43 @@ select::-ms-expand {
     border: 0;
 }
 
+/* content, like, see, scrap 부분 grid로 내용 새로 짬 */
+.detail-content-container{
+    display: grid;
+    margin-left: 15%;
+    margin-right: 15%;
+    row-gap: 30px;
+}
+
 .commu-detail-content {
     position: relative;
     display: inline-block;
     width: 100%;
-    left: 15%;
-    right: 15%;
     margin-bottom: 100px;
     color: #c56172;
     font-size: 30px;
     font-family: 'IM_Hyemin-Bold';
 }
 
-.icon {
-    position: relative;
+.like-see-section { /* 조회수, 좋아요 한 섹션으로 묶음 */
+    display: grid;
+}
+
+.like-icon {
     display: inline-block;
-    width: 2%;
-    left: 15%;
-    right: 83%;
+}
+
+.icon {
+    display: inline-block;
     height: auto;
     color: #c56172;
-    margin-left: 0;
-    margin-right: 0;
     font-size: 30px;
     font-family: 'IM_Hyemin-Bold';
+}
+
+.del-cor-section {
+    display: grid;
+    grid-template-columns: 50px 50px;
 }
 
 .content-item {
@@ -564,7 +590,6 @@ li .comment-btn {
 }
 
 #bookmark-url-body {
-    margin-left: 15%;
     display: none;
 }
 
@@ -617,3 +642,4 @@ li .comment-btn {
     font-size: 25pt;
     color: #c56172;
 }
+

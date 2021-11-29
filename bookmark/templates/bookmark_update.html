@@ -13,30 +13,10 @@
     <div class="bookmark-create-head">
         <h1>수정하기</h1>
     </div>
-    <div class="bookmark-create-body">
-        <div class="url-plus">
-            <label class="bookmark-create-Label">URL링크</label>
-            <input type="text" required class="bookmark-create-input" placeholder="URL입력">
-                <span class="bookmark-spanoverlay"></span>
-        </div>
-        <div class="url-name">
-            <label class="bookmark-create-Label">URL이름</label>
-            <input type="text" required class="bookmark-create-input" placeholder="URL이름">
-            <span class="bookmark-spanoverlay"></span>
-        </div>
-        <div class="url-category">
-            <select id="category">
-                <option>--카테고리 선택--</option>
-                <option>광현</option>
-                <option>주영</option>
-                <option>민정</option>
-                <option>은혜</option>
-                <option>예찬</option>
-            </select>
-        </div>
-        <div class="url-btn">
-            <button class="add-btn"><a href={% url 'bookmark_list' %} style="text-decoration:none; text-align:center; content-align:center; font-size:30px;">등록</a></button>
-        </div>
-    </div>
+    <form action="" method = "post">
+        {{form.as_p}}
+        {% csrf_token %}
+        <input type="submit" value="수정완료">
+    </form>
 </div>
 {% endblock %}
