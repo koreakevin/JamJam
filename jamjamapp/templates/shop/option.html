@@ -1,0 +1,44 @@
+{% extends 'layout2.html' %} 
+{% load static %}
+
+{% block head %}
+<title>너와 나의 달달한 소스, JamJam</title>
+
+{% endblock %}
+{% block contents %}
+<!--theme.html과 동일 -->
+    <link href="{% static 'jamjamapp/css/shop.css' %}" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <div class="theme-container">
+        <h1 class="shop-title">기능 샵</h1>
+        <div class="theme-image-1">
+            <br><br><br>
+            <h1>버킷리스트</h1>
+        </div>
+        <div class="theme-image-2">
+            <h1>준비 중입니다.</h1>
+        </div>
+        <div class="theme-image-3">
+            <h1>준비 중입니다.</h1>
+        </div>
+        <div class="item-explanation-1">
+            <h1>설명서</h1>
+        </div>
+        <div class="item-explanation-2">
+            <h1>설명서</h1>
+        </div>
+        <div class="item-explanation-3">
+            <h1>설명서</h1>
+        </div>
+        <div class="item-pay-1" style="cursor:pointer">
+            <a href={% url 'pay' %} style="text-decoration:none;"><h2>잼 구매</h2></a>
+        </div>
+        <div class="item-pay-2">
+            <a href={% url 'pay' %} style="text-decoration:none;"><h2>잼 구매</h2></a>
+        </div>
+        <div class="item-pay-3">
+            <a href={% url 'pay' %} style="text-decoration:none;"><h2>잼 구매</h2></a>
+        </div>
+    </div>
+{% endblock %}

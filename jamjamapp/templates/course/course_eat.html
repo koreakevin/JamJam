@@ -1,0 +1,24 @@
+<!--코스 목록-->
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="{% url 'course_eat' %}">eat</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'course_look' %}">look</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'course_play' %}">play</a></li>
+    </ul>
+  </div>
+
+<p>먹거리</p>
+<a href="{% url 'course_eat_C' %}">글쓰기</a>
+
+<br><br><br><br>
+{% for eat_Cs in eat_Cs.all %}
+
+<h1><a href="{% url 'course_eat_detail' eat_Cs.id %}">{{ eat_Cs.Title }}</a></h1></br>
+{{ eat_Cs.Write_day }}</br>
+{{ eat_Cs.Image }}</br>
+{{ eat_Cs.big_region }}</br>
+{{ eat_Cs.small_region }}</br>
+{{ eat_Cs.Eat_likes }}</br>
+{{ eat_Cs.view_count }}</br>
+
+{% endfor %}

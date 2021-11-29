@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% block head %}
+    <title>너와 나의 달달한 소스, JamJam</title>
+    {% endblock %}
+    
+    <link href="{% static 'jamjamapp/css/layout1.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+    <!--네브바 구현-->
+    <div class="header">
+        <img class="navbar-base" src="{% static 'jamjamapp/img/nav_base.png' %}">
+        <a href="{% url 'main' %}"><img class="navbar-brand" src="{% static 'jamjamapp/img/logo.png' %}"></a>
+        <nav class="base first navbar" id="mainNav">
+            <ul class="navbar-first">
+                <li>
+                    <a class="navbar-link-diary" href="{% url 'calendar' %}">다이어리</a>
+                </li>
+                <li>
+                    <a class="navbar-link-community" href="{% url 'community' %}">커뮤니티</a>
+                </li>
+                <li>
+                    <a class="navbar-link-course" href="{% url 'course' %}">코스</a>
+                </li>
+                <li>
+                    <a class="navbar-link-jamshop" href="{% url 'shop' %}">잼샵</a>
+                </li>
+                <li>
+                    <a class="navbar-link-mypage" href="{% url 'mypage' %}">마이페이지</a>
+                </li>
+                <li>
+                    <a class="navbar-link-bookmark" href="{% url 'bookmark_category' %}">북마크</a>
+                </li>
+                <li class="side-jam-count">
+                    <img src="{% static 'jamjamapp/img/jam_white.png' %}" weight="30" height="30">
+                    <a class="navbar-jam-count"  href="{% url 'jampay' %}">2개</a>
+                </li>
+                <li>
+                    <a class="navbar-hellouser" href="{% url 'mypage' %}">{{user.username}}님 환영합니다.</a>
+                </li>
+                <li>
+                    <a class="navbar-link-logout" href="{% url 'signout' %}">로그아웃</a>  
+                </li>
+            </ul>
+        </nav>
+    </div>
+    {% block contents %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'layout1.html' %} 
+{% load static %}
+
+{% block head %}
+<title>너와 나의 달달한 소스, JamJam</title>
+
+{% endblock %}
+{% block contents %}
+<link href="{% static 'jamjamapp/css/bookmark.css' %}" rel="stylesheet" />
+
+
+<div class="bookmark-create-container">
+    <div class="bookmark-create-head">
+        <h1>새로운 URL 추가하기</h1>
+    </div>
+    <p>전으로 돌아가 해당 페이지의 url을 복사하여 Book url에 입력해주시고,<br><br>
+        Book site name으로 북마크 이름을,<br><br>
+        Book category로 북마크의 카테고리도 설정해보세요!</p>
+        <br>
+        <h1>↓</h1>
+        <br>
+    <form action="" method = "post">
+        {{form.as_p}}
+        {% csrf_token %}
+        <input type="submit" value="추가완료">
+    </form>
+</div>
+<br><br><br><br><br><br><br>
+{% endblock %}

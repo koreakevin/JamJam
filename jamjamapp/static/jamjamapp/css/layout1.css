@@ -1,0 +1,169 @@
+
+
+@font-face {
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'IM_Hyemin-Bold';
+    background-color: #FEE5E9;
+    margin: 0px;
+}
+
+html,body{ overflow-x: hidden; }
+
+/*scrollbar css*/
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+}
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+  
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ff99aa;
+}
+
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #FFC4CE;
+}
+
+.navbar-base {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+}
+
+.navbar-brand {
+    position: absolute;
+    width: 300px;
+    left: 65px;
+    top: 15px;
+}
+
+.navbar-first {
+    list-style-type: none;
+    margin: 0;
+}
+
+li {
+    margin: 0 0 0 0;
+    margin-bottom: 30px;
+    padding: 0 0 0 0;
+    border : 0;
+    float: left;
+}
+
+li a {
+    margin-left: 60px;
+    color: #ffffff;
+    font-size: 25px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'IM_Hyemin-Bold';
+}
+
+li a:hover {
+    color: #ff7a91;
+}
+
+.navbar-first {
+    position:absolute;
+    top:40px;
+    left:2%;
+}
+
+.navbar-link-diary {
+    margin-left: 400px;
+}
+
+.navbar-link-mypage {
+    margin-right: 50px;
+}
+
+.navbar-jam-count {
+   margin-left: 0;
+}
+
+.navbar-link-logout {
+    margin-left: 10px;
+}
+
+.navbar-link-bookmark {
+    margin-left: 5px;
+    margin-right: 80px;
+}
+.ddaybox {
+    float: left;
+    display: inline-block;
+    width: 40%;
+    margin-left: 180px;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    padding-left: 180px;
+    padding-right:180px;
+    border-radius: 88px;
+    border: solid 1px #fd99aa;
+    background-color: #ffffff;
+  }
+
+h1 {
+      text-align: center;
+      font-family: 'IM_Hyemin-Bold';
+      font-size: 50px;
+      color: #c56172;
+}
+
+h2 {
+    font-family: 'IM_Hyemin-Bold';
+    font-size: 30px;
+    color: #c56172;
+}
+
+.jam-now {
+    float: left;
+    font-size: 20px;
+}
+
+.daydetail {
+    display: inline-block;
+    height: 500px;
+    margin: 15px 15px 15px 15px;
+    padding: 20px 100px 20px 100px;
+    border: solid 7px #fd99aa;
+    background-color: #ffffff;
+}
+
+.daybox {
+    display: inline-block;
+    position: relative;
+    margin-left: 200px;
+}
+
+p {
+    font-family : 'IM_Hyemin-Bold';
+    font-size: 15pt;
+    color: #c56172;
+}
+
+a {
+    font-family : 'IM_Hyemin-Bold';
+    font-size: 15pt;
+    color:#c56172;
+}
+
+.add-plan {
+    position: relative;
+    left: 230px;
+    margin-bottom: 100px;
+}

@@ -1,0 +1,140 @@
+{% extends 'layout1.html' %} 
+{% load static %}
+
+{% block head %}
+<title>너와 나의 달달한 소스, JamJam</title>
+
+{% endblock %}
+{% block contents %}
+    <link href="{% static 'jamjamapp/css/course.css' %}" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <div class="course-detail">
+        <div class="detail-info">
+            <h2 class="detail-content1">경복궁</h2>
+            <p class="detail-content2">사랑하는 연인과 함께 경복궁 야간개장 관람은 좋은 추억을 선물해줍니다.
+                미리 예매가 필요하고 입장시간도 확인해보세요! 경복궁은 태조 4년(1395)에 창건되어 임진왜란으로
+                소실, 이후 흥선대원군의 주도로 중건되었으니 조선 제일의 궁권이라 할 수 있답니다.</p>
+            <br>
+            <!-- <div class="detail-scrap">
+                <h3>이 코스 스크랩하기</h3>
+                <select class="scrap-where">
+                    <option>꼭 가보고 싶은 곳</option>
+                    <option>100일 기념</option>
+                </select>
+                <button class="save-btn">저장</button>
+            </div> -->
+        </div>
+    </div>
+
+        <img class="detail-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Seoul_Gyeongbok-gung-3.jpg/414px-Seoul_Gyeongbok-gung-3.jpg">
+    
+    <section class="content-item" id="comments">
+        <div class="container">   
+            <div class="row">
+                <div class="col-sm-8">
+                    <h3>3 Comments</h3>
+                    <button class="bookmark-scrap-btn" onclick='bookmark()'>북마크에 추가하기</button>
+                    
+                    <div id="bookmark-url-body" class="show">
+                        <div class="url-plus">
+                            <label class="bookmark-create-Label">URL추가</label>
+                            <input type="text" required class="bookmark-create-input" placeholder="URL입력">
+                                <span class="bookmark-spanoverlay"></span>
+                        </div>
+                        <div class="url-name">
+                            <label class="bookmark-create-Label">URL이름</label>
+                            <input type="text" required class="bookmark-create-input" placeholder="URL이름">
+                            <span class="bookmark-spanoverlay"></span>
+                        </div>
+                        <div class="url-category">
+                            <select id="category">
+                                <option>--카테고리 선택--</option>
+                                <option>광현</option>
+                                <option>주영</option>
+                                <option>민정</option>
+                                <option>은혜</option>
+                                <option>예찬</option>
+                            </select>
+                        </div>
+                        <div class="url-btn">
+                            <button class="add-btn"><a href={% url 'bookmark_list' %} style="text-decoration:none; text-align:center; content-align:center; font-size:30px">등록</a></button>
+                        </div>
+                    </div>
+                    <script>
+                        function bookmark(){
+                            document.getElementById("bookmark-url-body").classList.toggle("show");
+                        }
+                </script>
+
+                    <!-- COMMENT 1 - START -->
+                    <div class="media comment-media">
+                        <a class="pull-left" href="#"><img class="media-object" src="https://www.interstatedevelopment.com/wp-content/uploads/2019/04/generic-avatar-1.jpg" alt=""></a>
+                        <div class="media-body">
+                            <h4 class="media-heading">피카츄</h4>
+                            <p>어쩌구</p>
+                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                <li><i class="fa fa-calendar"></i>21.07.24.</li>
+                                <li><i class="fa fa-thumbs-up"></i>3</li>
+                            </ul>
+                            <ul class="list-unstyled list-inline media-detail pull-right">
+                                <li><a class="comment-btn" href="">Like</a></li>
+                                <li><a class="comment-btn" href="">Reply</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- COMMENT 1 - END -->
+                    
+                    <!-- COMMENT 2 - START -->
+                    <div class="media">
+                        <a class="pull-left" href="#"><img class="media-object" src="https://www.interstatedevelopment.com/wp-content/uploads/2019/04/generic-avatar-1.jpg" alt=""></a>
+                        <div class="media-body">
+                            <h4 class="media-heading">파이리</h4>
+                            <p>저쩌구</p>
+                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                <li><i class="fa fa-calendar"></i>21.07.24.</li>
+                                <li><i class="fa fa-thumbs-up"></i>3</li>
+                            </ul>
+                            <ul class="list-unstyled list-inline media-detail pull-right">
+                                <li><a class="comment-btn" href="">Like</a></li>
+                                <li><a class="comment-btn" href="">Reply</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- COMMENT 2 - END -->
+                    
+                    <!-- COMMENT 3 - START -->
+                    <div class="media">
+                        <a class="pull-left" href="#"><img class="media-object" src="https://www.interstatedevelopment.com/wp-content/uploads/2019/04/generic-avatar-1.jpg" alt=""></a>
+                        <div class="media-body">
+                            <h4 class="media-heading">꼬부기</h4>
+                            <p>와라라라라랄</p>
+                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                <li><i class="fa fa-calendar"></i>21.07.24.</li>
+                                <li><i class="fa fa-thumbs-up"></i>1</li>
+                            </ul>
+                            <ul class="list-unstyled list-inline media-detail pull-right">
+                                <li><a class="comment-btn" href="">Like</a></li>
+                                <li><a class="comment-btn" href="">Reply</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- COMMENT 3 - END -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="panel">
+        <div class="panel-body">
+          <textarea class="form-control comment-input" rows="2" placeholder="댓글을 입력해주세요."></textarea>
+          <div class="mar-top clearfix">
+            <button class="btn btn-sm btn-primary pull-right comment-submit" type="submit"><i class="fa fa-pencil fa-fw"></i>등록</button>
+            <a class="btn btn-trans btn-icon fa fa-camera fa-3x add-tooltip comment-button" href="#"></a>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+{% endblock %}

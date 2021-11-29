@@ -1,0 +1,12 @@
+<h1>bucketlist</h1>
+<hr>
+<div class="container px-4 px-lg-5">
+  
+  {% for buckets in buckets.all %}
+  <h1>제목: <a href="{% url 'bucket_detail' buckets.id %}">{{buckets.bucket_title}}</a></h1>
+  <h1>원하는 날짜: {{buckets.bucket_date}}</h1>
+  <h1>내용: {{buckets.bucket_body}}</h1>
+  {% endfor %}
+
+  <a href="{% url 'bucket_create' %}">작성하기</a>
+  </div>

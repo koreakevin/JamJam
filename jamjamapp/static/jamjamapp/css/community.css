@@ -1,0 +1,645 @@
+body {
+    overflow-x: hidden;
+}
+
+ul{
+    list-style:none;
+}
+
+.commu-menu {
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family : 'IM_Hyemin-Bold';
+    font-size: 30pt;
+    color: #c56172;
+}
+
+.teen {
+    width: 25%;
+    text-align: center;
+}
+
+.adult {
+    width: 25%;
+    text-align: center;
+}
+
+.free {
+    width: 25%;
+    text-align: center;
+}
+
+.sex {
+    width: 25%;
+    text-align: center;
+}
+
+.commu-dropdown {
+    width: 10%;
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    margin-top: 30px;
+    margin-left: 6%;
+}
+
+.commu-dd-btn {
+    background-color: #ff7a91;
+    color: white;
+    font-family : 'IM_Hyemin-Bold';
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 25px;
+    border: none;
+}
+
+.commu-dd-content {
+    display: none;
+    position: absolute;
+    background-color: #FFC4CE;
+    min-width: 150px;
+}
+
+.commu-dd-content a {
+    color: white;
+    padding: 12px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.commu-dd-content a:hover {background-color: #ddd;}
+
+.commu-dropdown:hover .commu-dd-content {display: block;}
+
+.commu-dropdown:hover .commu-dd-btn {background-color: #ff7a91;}
+
+/* search bar CSS starts here */
+:root{
+    --clr-main:#ffb0bb;
+    --clr-input:#ece6e6;
+}
+
+.search {
+    margin-left: 2%;
+    position: relative;
+    display: inline-block;
+    width: 50%;
+}
+
+.search form{
+   display: flex;
+   height: 80px;
+}
+
+.search input{
+    border: 1px solid var(--clr-main);
+    outline: none;
+    padding: .8em .4em;
+    color: var(--clr-dark-input);
+    font-family: 'IM_Hyemin-Bold';
+    font-size: 25px;
+}
+
+.search input::placeholder{
+    font-family : 'IM_Hyemin-Bold';
+    font-size: 25px;
+}
+
+.search button{
+    border: none;
+    outline: none;
+    background: var(--clr-main);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+   
+button svg{
+    box-sizing: content-box; 
+    --size: 20px;
+    width: var(--size);
+    height: var(--size);
+    fill: white;
+}
+/* search bar CSS ends here ---*/
+
+.create-btn {
+    background-color: #ff7a91;
+    color: white !important;
+    font-family : 'IM_Hyemin-Bold';
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 25px;
+    border: none;
+    margin-left: 90%;
+    justify-content: center;
+}
+
+.write-btn {
+    background-color: #ff7a91;
+    color: white;
+    font-family : 'IM_Hyemin-Bold';
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 25px;
+    border: none;
+    margin-left: 45%;
+    justify-content: center;
+    
+}
+
+/* 커뮤니티 horizon */
+
+.commu-hr {
+    background-color: #FEE5E9;
+    border-top: 3px dashed #c56172;
+}
+
+
+/* 커뮤 글 목록 css */
+
+table.commu-table {
+    font-family : 'IM_Hyemin-Bold';
+    font-size: 25px;
+    color: #c56172;
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    margin-top: 50px;
+    margin-right: 40px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+
+table.commu-table th {
+    width: 150px;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: fff;
+}
+
+table.commu-table td {
+    width: 350px;
+    padding: 20px;
+    text-align: center;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+
+/* 페이지네이션 */
+
+.commu-page-li {
+    list-style: none;
+}
+
+.commu-page-ul {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+li.commu-page {
+    margin: 0 0 0 0;
+    margin-bottom: 30px;
+    padding: 0 0 0 0;
+    border : 0;
+    float: left;
+}
+
+li.commu-page-li a {
+    margin-left: 60px;
+    color: #ff7a91;
+    font-size: 25px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'IM_Hyemin-Bold';
+}
+
+li.commu-page-li a:hover {
+    color: #fff;
+}
+
+.commu-h3 {
+    display: inline-block;
+    text-align: left;
+    margin-left: 15%;
+    width: 10%;
+    font-weight: bold;
+    color: #c56172;
+    font-size: 25px;
+    font-family: 'IM_Hyemin-Bold';
+}
+
+.commu-h4 {
+    display: inline-block;
+    text-align: right;
+    margin-left: 5px;
+    font-weight: bold;
+    color: #c56172;
+    font-size: 25px;
+    font-family: 'IM_Hyemin-Bold';
+}
+
+
+select {
+    margin-right: 10%;
+    margin-left: 15%;
+    width: 30%;
+    padding: .8em .5em;
+    font-family: inherit;
+    background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid #fff;
+    border-radius: 0px;
+    color: #c56172;
+    font-size: 25px;
+    font-family: 'IM_Hyemin-Bold';
+  }
+  
+select::-ms-expand {
+    /* for IE 11 */
+    display: none;
+}
+
+.commu-input {
+    width: 60%;
+    position: relative;
+    display: inline-block;
+}
+
+.commu-input input {
+    width: 60%;
+    height: auto;
+    margin-left: 20%;
+    line-height: normal;
+    padding: .8em .5em;
+    border: 1px solid #fd99aa;
+    border-radius: 0;
+    outline: 0;
+    outline-style: none;
+    color: #c56172;
+    font-size: 20px;
+    font-family: 'IM_Hyemin-Bold';
+    white-space: pre-line;
+}
+
+.content textarea {
+    width: 60%;
+    margin-left: 20%;
+    line-height: normal;
+    padding: .8em .5em;
+    border: 1px solid #fd99aa;
+    border-radius: 0;
+    outline: 0;
+    outline-style: none;
+    color: #c56172;
+    font-size: 20px;
+    font-family: 'IM_Hyemin-Bold';
+    white-space: pre-line;
+}
+
+.filebox label {
+    position: relative;
+    display: inline-block;
+    bottom: 80px;
+    left: 50%;
+    padding: .5em .75em;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'IM_Hyemin-Bold';
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #fd99aa;
+    cursor: pointer;
+    border: 1px solid #c56172;
+    border-radius: .25em;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+  
+.filebox label:hover {
+    background-color: #fd99aa
+}
+
+.filebox label:active {
+    background-color: #c67172;
+}
+  
+.filebox input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* content, like, see, scrap 부분 grid로 내용 새로 짬 */
+.detail-content-container{
+    display: grid;
+    margin-left: 15%;
+    margin-right: 15%;
+    row-gap: 30px;
+}
+
+.commu-detail-content {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 100px;
+    color: #c56172;
+    font-size: 30px;
+    font-family: 'IM_Hyemin-Bold';
+}
+
+.like-see-section { /* 조회수, 좋아요 한 섹션으로 묶음 */
+    display: grid;
+}
+
+.like-icon {
+    display: inline-block;
+}
+
+.icon {
+    display: inline-block;
+    height: auto;
+    color: #c56172;
+    font-size: 30px;
+    font-family: 'IM_Hyemin-Bold';
+}
+
+.del-cor-section {
+    display: grid;
+    grid-template-columns: 50px 50px;
+}
+
+.content-item {
+    padding:30px 0;
+}
+
+.content-item.grey {
+	background-color:#F0F0F0;
+	padding:50px 0;
+	height:100%;
+}
+
+.content-item h2 {
+	font-weight:700;
+	font-size:35px;
+	line-height:45px;
+	text-transform:uppercase;
+	margin:20px 0;
+}
+
+.content-item h3 {
+	font-weight:400;
+	font-size:20px;
+	color:#c56172;
+	margin:10px 0 15px;
+	padding:0;
+}
+
+.content-headline {
+	height:1px;
+	text-align:center;
+	margin:20px 0 70px;
+}
+
+.content-headline h2 {
+	display:inline-block;
+	margin:-20px auto 0;
+	padding:0 20px;
+}
+
+.content-headline h3 {
+	font-size:14px;
+	color:#AAAAAA;
+	display:block;
+}
+
+
+#comments {
+    color:#c56172;
+    width: 60%;
+    font-size: 30px;
+    font-family: 'IM_Hyemin-Bold';
+    margin-left: 15%;
+    margin-bottom: 3%;
+}
+
+#comments .media {
+	border-top:1px solid #DDDDDD;
+	padding:50px 50px;
+	margin:0;
+}
+
+#comments .media > .pull-left {
+    margin-right:10px;
+}
+
+#comments .media img {
+	max-width:100px;
+}
+
+#comments .media h4 {
+	margin:0 0;
+}
+
+#comments .media p {
+	margin-bottom:15px;
+	text-align:justify;
+}
+
+#comments .media-detail {
+	margin:0;
+}
+
+#comments .media-detail li {
+	color:#AAAAAA;
+	font-size:20px;
+	padding-right: 10px;
+	font-weight:600;
+    list-style: none;
+}
+
+#comments .media-detail a:hover {
+	text-decoration:underline;
+}
+
+#comments .media-detail li:last-child {
+	padding-right:0;
+}
+
+#comments .media-detail li i {
+	color:#666666;
+	font-size:20px;
+	margin-right:10px;
+}
+
+li .comment-btn {
+    color:#c56172;
+    padding: 10px;
+}
+
+.input-comment {
+    width: 70%;
+    padding-right: 2%;
+    padding-top: 2%;
+    margin-left: 15%;
+    margin-bottom: 5%;
+    background-color: #ffb0bb;
+}
+
+.img-sm {
+    width: 46px;
+    height: 46px;
+}
+
+.panel {
+    background-color: #ffb0bb;
+    width: 50%;
+    margin-left: 20%;
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 15px;
+}
+
+.panel-body {
+    padding-right: 50px;
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 70px;
+}
+
+.comment-input {
+    width: 100%;
+    height: 200px;
+    color: #c56172;
+    font-size: 30px;
+    font-family: 'IM_Hyemin-Bold';
+    border: #fff;
+}
+
+.comment-submit {
+    width: 120px;
+    height: 60px;
+    padding: 5px 5px;
+    color: #c56172;
+    font-size: 25px;
+    font-family: 'IM_Hyemin-Bold';
+    background-color: #fff;
+    border: #fff;
+}
+
+
+/* commu_detail > javascript/bookmark */
+#category {
+    width: 20%;
+    padding: .8em .5em;
+    font-family: inherit;
+    background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid #fff;
+    border-radius: 0px;
+    color: #c56172;
+    font-size: 20px;
+    font-family: 'IM_Hyemin-Bold';
+    margin-left: 7%;
+  }
+  
+.bookmark-scrap-btn {
+    all: unset;
+    width: 300px;
+    height: 50px;
+    border-radius: 12px;
+    text-align: center;
+    background-color: pink;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.bookmark-scrap-btn:hover {
+    background-color: #fd99aa;
+    color: white;
+}
+
+#category::-ms-expand {
+    /* for IE 11 */
+    display: none;
+}
+
+#bookmark-url-body {
+    display: none;
+}
+
+#bookmark-url-body.show {
+    display: block;
+}
+
+.bookmark-create-input {
+    all: unset;
+    position: relative;
+    left: 2%;
+}
+
+.bookmark-spanoverlay {
+    position: relative;
+    bottom: 0;
+    right: 25%;
+    justify-content: center;
+    margin: 0 auto;
+    display: block;
+    width: 30%;
+    height: 5px;
+    background-color: #fd99aa;
+    opacity: 0.2;
+}
+
+.add-btn {
+    all: unset;
+    width: 180px;
+    height: 70px;
+    border-radius: 12px;
+    text-align: center;
+    background-color: pink;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10%;
+}
+
+.add-btn:hover {
+    background-color: #fd99aa;
+    color: white;
+}
+
+.bookmark-create-Label {
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family : 'IM_Hyemin-Bold';
+    font-size: 25pt;
+    color: #c56172;
+}
+

@@ -1,0 +1,8 @@
+<h1>bucketlist_detail</h1>
+<hr>
+<h1>제목: {{bucket.bucket_title}}</a></h1>
+<h1>원하는 날짜: {{bucket.bucket_date}}</h1>
+<h1>내용: {{bucket.bucket_body}}</h1>
+
+<a href="{% url 'bucket_edit' bucket.id %}">수정하기</a>
+<a href="{% url 'bucket_delete' bucket.id %}">삭제하기</a>

@@ -1,0 +1,94 @@
+{% extends 'layout1.html' %} 
+{% load static %}
+
+{% block head %}
+<title>너와 나의 달달한 소스, JamJam</title>
+
+{% endblock %}
+{% block contents %}
+    <link href="{% static 'jamjamapp/css/community.css' %}" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <div class="maincontainer">
+        <h2 style="text-align: center; font-size: 60px;">커뮤니티</h2>
+        <br>
+        <br>
+        <br>
+        <ul class="commu-menu">
+            <li class="teen">10대</li>
+            <li class="adult">20~30대</li>
+            <li class="free">자유게시판</li>
+            <li class="sex">성고민</li>
+        </ul>
+    <br>
+    <br>
+
+        <h3 class="commu-h3" style="font-size: 40px; width: 20%; margin-bottom: 20px;">{{ blog.Title }}</h3>
+        <h4 class="commu-h4">작성자: {{ user.username }}</h4>
+        <h4 class="commu-h4">작성일: {{ blog.Write_day }}</h4>
+
+        <hr class="commu-hr">
+
+        <div class="detail-content-container">
+            <h4 class="commu-detail-content">{{ blog.Content }}</h4>
+            <!--여기 좋아요 있어요!!! 프론트 분들 고생하십니다ㅠㅠ-->
+            
+            <section class="like-see-section">
+                <div class="like-sec-di">
+                    <a href="{% url 'commu_like' pk=blog.pk %}">
+                    {% if user in blog.Blog_likes.all %}
+                        <svg class="like-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                    {% else %}
+                    <svg class="like-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                    </svg>
+                    {% endif %}
+                    <a>{{ blog.Blog_likes.count }}</a>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                    </svg>
+                    <a>{{blog.view_count}}</a>
+                </div>
+            </section>
+            <!--수정&삭제 여깄습니다!!-->
+            <section class="del-cor-section">
+                <a href="{% url 'commu_edit' blog.id %}">수정</a>
+                <a href="{% url 'commu_delete' blog.id %}">삭제</a>
+            </section>
+
+            <div class="commu-write-btn">
+                <button class="write-btn" style="display: flex; width: 15vh; justify-content: center; align-items: right; margin-bottom: 40px; margin-left: 10px;">
+                    <a href="{% url 'bookmark_create' %}" style="text-decoration:none; font-size:30px; color: white;">북마크</a>
+                </button>
+            </div>
+
+        </div>
+        <hr class="commu-hr">
+
+        
+        <section class="content-item" id="comments">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h3>댓글</h3>
+            
+                        <!-- COMMENT - START -->
+                        <form method="POST" action="{% url 'commu_detail' blog.id %}">
+                            {% csrf_token %}
+                            <p>{{ form.as_p }}</p>
+                            <input type="submit" value="submit">
+                        </form>
+                        {% for comment in blog.comments.all %}
+                        <p>↳ &nbsp;{{ user.username }}&nbsp;:&nbsp;{{ comment.text }}&nbsp;&nbsp;(&nbsp;{{ comment.pub_date }}&nbsp;)</p>
+                        {% endfor %}
+                        <!-- COMMENT - END -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+{% endblock %}

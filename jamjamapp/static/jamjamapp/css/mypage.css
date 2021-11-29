@@ -1,0 +1,183 @@
+/* mypage.html */
+.mypage-container {
+    display: grid;
+    grid-template-columns: repeat(3, 500px);
+    align-items:center;
+    justify-content: center;
+    grid-column-gap: 5%;
+}
+
+.mypage-box {
+    background-color: #FEEFF2;
+    height: 400px;
+    text-align: center;
+}
+
+.mypage-box > h1 {
+    font-size: 50px;
+
+}
+
+/* profile.html */
+.profile-container {
+    display: grid;
+    grid-template-columns: repeat(2, 500px);
+    grid-column-gap: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.field {
+    text-align: right;
+}
+
+.field-infor > a {
+    width: 100px;
+    height: 80px;
+    background-color: #FFC4CE;
+}
+
+.field-infor > .h2-change {
+    width: 200px;
+    text-align: center;
+    font-family: 'IM_Hyemin-Bold';
+    font-size: 30px;
+    color: #c56172;
+}
+
+.change-btn {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.change-nick {
+    text-align: center;
+    font-family: 'IM_Hyemin-Bold';
+    font-size: 30px;
+    color: #c56172;
+}
+
+/* connection.html */
+.connection-container {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.connection-body { /* connection-body 추가 */
+    width: 100%;
+}
+
+.connection-box { /* 수정 */
+    width: 20%;
+    height: 150px;
+    background-color: #fd99aa;
+    left: 40%;
+    right: 40%;
+    position: absolute;
+}
+
+.connection-box > h2 {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+}
+
+/* purchaselist.html */
+.purchaselist-container {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows:repeat(2,500px);
+}
+
+.survice-boxcontainer {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows:repeat(2, 200px);
+    grid-template-areas:
+    "box1 box1 box2"
+    "box1 box1 box3";
+    justify-content: center;
+    grid-gap: 1rem;
+}
+
+.pur-survice-box {
+    background-color: #ffcdd6;
+    grid-area: box1;
+    justify-content: center;
+
+}
+.pur-look-box {
+    background-color: #fd99aa;
+    grid-area: box2;
+    
+}
+
+.pur-delete-box {
+    background-color: #fd99aa;
+    grid-area: box3;
+}
+
+.pur-look-box > h2 {
+    color: white;
+    text-align: center;
+}
+
+.pur-delete-box > h2 {
+    color: white;
+    text-align: center;
+}
+
+/* purchase_example.html */
+.purchase-ex-container {
+    left: 10%;
+    display: grid;
+    grid-template-columns: 15% 7fr 2fr 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.pur-contents > h2{
+    display: inline;
+    font-size: 50pt;
+}
+
+.pur-contents {
+    grid-column: 2/3
+}
+
+.pur-contents > p {
+    font-size: 30pt;
+}
+
+.pur-blocks {
+    grid-column: 3/4;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 30px;
+
+}
+
+.pur-blocks h1 {
+    color: white;
+}
+
+.pur-block-apply h1 {
+    color: green;
+
+}
+
+.pur-block-back {
+    background-color: #fd99aa;
+    grid-row: 4/5;  
+
+}
+
+.pur-block-delete {
+    background-color: #fd99aa;
+}
+
+.pur-block-apply {
+    background-color: #fd99aa;
+}

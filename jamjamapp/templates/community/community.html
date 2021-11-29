@@ -1,0 +1,134 @@
+{% extends 'layout1.html' %}
+{% load static %}
+
+{% block head %}
+<title>너와 나의 달달한 소스, JamJam</title>
+
+{% endblock %}
+{% block contents %}
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet" />
+<link href="{% static 'jamjamapp/css/community.css' %}" rel="stylesheet" />
+
+<style>
+    ul{
+       list-style:none;
+       }
+</style>
+
+<div class="maincontainer">
+    <h2 style="text-align: center; font-size: 60px;">커뮤니티</h2>
+    <br>
+    <br>
+    <br>
+    <ul class="commu-menu">
+        <li class="teen">10대</li>
+        <li class="adult">20~30대</li>
+        <li class="free">자유게시판</li>
+        <li class="sex">성고민</li>
+    </ul>
+    <br>
+    <br>
+    <!-- <div class="commu-dropdown">
+        <button class="commu-dd-btn">필터</button>
+        <div class="commu-dd-content">
+            <a href="#">전체</a>
+            <a href="#">추천순</a>
+            <a href="#">조회수순</a>
+            <a href="#">댓글순</a>
+        </div>
+    </div> -->
+    <!-- search starts here -->
+    <!-- <div class="search">
+        <form action='/search' method='get'>
+            <input autocomplete='off' name='q' placeholder="Search me!" /> -->
+            <!-- svg icon -->
+            <!-- <button class="button">
+                <svg viewBox="0 0 56.966 56.966">
+                    <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23
+	                s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92
+	                c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17
+	                s-17-7.626-17-17S14.61,6,23.984,6z" />
+                </svg>
+            </button>  -->
+            <!-- icon -->
+        <!-- </form>
+    </div> -->
+    <!-- search ends here -->
+    <div class="commu-write-btn">
+        <button class="create-btn"><a href="{% url 'commu_write' %}" style= "text-decoration:none;">글쓰기</a></button>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <hr class="commu-hr">
+
+    <table class="commu-table">
+        <thead>
+            <tr>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+                <th>추천수</th>
+            </tr>
+        </thead>
+        {% for blogs in blogs %}
+        <tbody>
+            <td><a style="text-decoration:none; font-size:25px;" href="{% url 'commu_detail' blogs.id %}">{{ blogs.Title }}</a></td>
+            <td>{{ user.username }}</td>
+            <td>{{ blogs.Write_day|date:'Y년 m월 d일' }}</td>
+            <td>{{ blogs.view_count }}</td>
+            <td>{{ blogs.Blog_likes.count }}</td>
+        </tbody>
+        {% endfor %}
+    </table>
+
+    <nav class="commu-page">
+<!-- 페이징처리 시작 -->
+<ul class="commu-page-ul">
+    <!-- 이전페이지 -->
+    {% if blogs.has_previous %}
+    <li class="commu-page-li">
+        <a class="page-link" href="?page={{ blogs.previous_page_number }}">이전</a>
+    </li>
+    {% else %}
+    <li class="commu-page-li">
+        <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+    </li>
+    {% endif %}
+    <!-- 페이지리스트 -->
+    {% for page_number in blogs.paginator.page_range %}
+    {% if page_number >= blogs.number|add:-4 and page_number <= blogs.number|add:4 %}
+        {% if page_number == blogs.number %}
+        <li class="commu-page-li" aria-current="page">
+            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+        </li>
+        {% else %}
+        <li class="commu-page-li">
+            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+        </li>
+        {% endif %}
+    {% endif %}
+    {% endfor %}
+    <!-- 다음페이지 -->
+    {% if blogs.has_next %}
+    <li class="commu-page-li">
+        <a class="page-link" href="?page={{ blogs.next_page_number }}">다음</a>
+    </li>
+    {% else %}
+    <li class="pcommu-page-li">
+        <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+    </li>
+    {% endif %}
+</ul>
+<!-- 페이징처리 끝 -->
+</nav>
+    <hr class="commu-hr">
+    <br>
+    <br>
+    <br>
+
+
+    {% endblock %}

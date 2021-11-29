@@ -1,0 +1,63 @@
+{% load static %}
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% block head %}
+    <title>너와 나의 달달한 소스, JamJam</title>
+    {% endblock %}
+    
+    <link href="{% static 'jamjamapp/css/layout2.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <!-- layout2.html 전체 수정 -->
+    
+    <div class="wrapper">
+        <ul>
+            <a href="{% url 'main' %}"><img class="navbar-brand" src="{% static 'jamjamapp/img/logo.png' %}"></a>
+            <li style="margin-top: 10%;"><a href="{% url 'calendar' %}">다이어리</a></li>
+            <li><a href="{% url 'community' %}">커뮤니티</a></li>
+            <li><a href="{% url 'course' %}">코스</a></li>
+            <li><a href="{% url 'shop' %}">잼샵</a></li>
+            <li><a href="{% url 'mypage' %}">마이페이지</a></li>
+            <li><a href="{% url 'bookmark_category' %}">북마크</a></li>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <li>
+                <img src="{% static 'jamjamapp/img/jam_white.png' %}" weight="30" height="30" style="display: inline-block;">
+                <a class="navbar-jam-count"  href="{% url 'jampay' %}" style="display: inline-block;">2개임</a>
+            </li>
+            <li>
+                <a class="navbar-link-logout" href="{% url 'signout' %}">로그아웃</a>  
+        </ul>
+    </div>
+    </body>
+    {% block contents %}
+    {% endblock %}
+
+</body>
+</html>

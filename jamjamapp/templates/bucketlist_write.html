@@ -1,0 +1,9 @@
+<h1>bucketlist_write</h1>
+<hr>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <button type="submit">작성</button>
+</form>

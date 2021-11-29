@@ -1,0 +1,20 @@
+{% extends 'layout2.html' %} 
+{% load static %}
+
+{% block head %}
+<title>너와 나의 달달한 소스, JamJam</title>
+
+{% endblock %}
+{% block contents %}
+    <link href="{% static 'jamjamapp/css/shop.css' %}" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    
+<div class="pay-container">
+    <h1>신용카드 및 간편결제로 결제</h1>
+    <img class="img-jam" src="{% static 'jamjamapp/img/original_jam.png' %}">
+    <h3>아이템 : 10 Jam / 결제금액 : 3,000 원</h3>
+    <div class="pay-box">
+        <a href={% url 'finalpay' %} style="text-decoration:none;"><h2>결제</h2></a>
+    </div>
+</div>
+{% endblock %}

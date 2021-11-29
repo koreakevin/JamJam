@@ -1,0 +1,36 @@
+{% extends 'layout1.html' %} 
+{% load static %}
+
+{% block head %}
+<title>너와 나의 달달한 소스, JamJam</title>
+
+{% endblock %}
+{% block contents %}
+<link href="{% static 'jamjamapp/css/bookmark.css' %}" rel="stylesheet" />
+
+
+<div class="bookmark-category-container">
+    <div class="category-search">
+        <h1>새로운 URL 카테고리 생성하기</h1>
+        <p>카테고리를 추가하여 스크랩한 url을 종류별로 구분해보세요</p>
+        <form method="POST">
+          {% csrf_token %}
+          <br><br>
+          <table>
+              {{form.as_table}}{{ error_message }}
+          </table>
+          <br>
+          <input class="category-enroll-btn" type="submit" value="제출하기">
+       </form>
+    </div>
+
+
+    <div class="categorylist">
+
+        <h2>[ 카테고리 목록 ]</h2>
+            {% for book_categorys in book_categorys.all %}
+            <a href="{% url 'bookmark_list' book_categorys.id %}">{{ book_categorys.name }}</a><br>
+            {% endfor %}    
+    </div>
+</div>
+{% endblock %}

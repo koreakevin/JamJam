@@ -1,0 +1,61 @@
+<p>제목 : {{ play_C.Title }}</p>
+<p>작성일 : {{ play_C.Write_day }}</p>
+<p>내용 : {{ play_C.Content }}</p>
+{% if play_C.Image %}
+<img src="{{ play_C.Image.url }}">
+{% endif %}
+<a href="{% url 'course_play_edit' play_C.id %}">수정하기</a>
+<a href="{% url 'course_play_delete' play_C.id %}">삭제하기</a>
+
+
+<p>좋아요 {{ play_C.play_likes.count }}개</p>
+
+<a href="{% url 'course_play_like' pk=play_C.pk %}">
+{% if user in play_C.play_likes.all %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+    </svg>
+{% else %}
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+</svg>
+{% endif %}
+</a>
+
+
+<p>조회수 {{play_C.view_count}}개</p>
+
+<!--
+<h2>댓글</h2>
+
+<form method="POST" action="{% url 'detail' blog.id %}">
+    {% csrf_token %}
+    <p>{{ form.as_p }}</p> 
+    <input type="submit" value="submit">
+</form>
+
+{% for comment in blog.comments.all %}
+<p>{{comment.text}}</p>
+<a href="{% url 'delete_comment' blog.id comment.id %}">삭제하기</a>
+{% endfor %}
+-->
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://jamjam-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>너와 나의 달달한 소스, JamJam</title>
+    <link href="{% static 'jamjamapp/css/login.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+<form method="POST" action="{% url 'signin' %}" id="signinForm">
+    {% csrf_token %}
+    <!--로그인 바 구현-->
+    <div class="login-container">
+        <div class="login-background">
+            <img src="{% static 'jamjamapp/img/loginback.jpg' %}">
+        </div>
+        <div class="login-box">
+            <div class="login-header">
+                <h1>잼잼 로그인</h1>
+                <p class="inform-if">처음 사용하는 유저라면?</p>
+                <a href="{% url 'signup' %}">회원가입</a>
+            </div>
+            {% if user.is_authenticated %}
+            <h2 class="masthead-subheading mb-0">{{user.username}}은 로그인 상태입니다.</h2>
+            <a href="{% url 'signout' %}"> logout</a>
+            {% else %}
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="login-body">
+                    <div class="login-content">
+                        <label class="loginLabel">이메일주소</label>
+                        <input id="email" name="email" type="text" required class="loginInput">
+                        <span class="spanOverlay"></span>
+                    </div>
+                    <div class="login-content">
+                        <label class="loginLabel">비밀번호</label>
+                        <input id="password" name="password" type="password" required class="loginInput">
+
+                        <span class="spanOverlay"></span>
+                        <a class="findpw" href="#">비밀번호찾기</a>
+                    </div>
+                </div>
+                <div class="login-findpw-con">
+                    <button type="submit" class="login-btn">로그인</button>
+                </div>
+            </form>
+            {% endif %}
+        </div>
+</form>        
+</body>
+
+</html>
